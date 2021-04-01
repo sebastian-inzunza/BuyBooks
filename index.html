@@ -91,7 +91,7 @@
                 <!-- Text based logo -->
                 <a href="index.html">
                   <span class="fa fa-leanpub"></span>
-                  <p>daily<strong>Shop</strong> <span>Tus Libros Favoritos</span></p>
+                  <p>Buy<strong>Books</strong> <span>Tus Libros Favoritos</span></p>
                 </a>
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
@@ -138,7 +138,7 @@
               <!-- search box -->
               <div class="aa-search-box">
                 <form action="">
-                  <input type="text" name="" id="" placeholder="Search here ex. 'man' ">
+                  <input type="text" name="" id="" placeholder="Buscar...">
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
               </div>
@@ -346,6 +346,14 @@
                     <!-- Inicio Categoria Filosofia-->
                     <div class="tab-pane fade in active" id="men">
                       <ul class="aa-product-catg">
+
+                        <?php
+                          require "php/conexion.php";
+                          $conexion = connectDB();
+                          if (mysqli_connect_error()){
+                                    die('connect error('.mysqli_connect_errno().')'.mysqli_connect_error());
+                                } else{}
+                        ?>
                         <!-- start single product item -->
 
                         <li>
@@ -1186,7 +1194,7 @@
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.js"></script>  
+  <script src="js/bootstrap.js"></script>
   <!-- SmartMenus jQuery plugin -->
   <script type="text/javascript" src="js/jquery.smartmenus.js"></script>
   <!-- SmartMenus jQuery Bootstrap Addon -->
