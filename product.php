@@ -137,7 +137,7 @@
               <!-- / cart box -->
               <!-- search box -->
               <div class="aa-search-box">
-                <form action="product.php"  method = "post">
+                <form action=""  method = "post">
                   <input type="text" name="buscar" id="" placeholder="Buscar...">
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
@@ -221,107 +221,10 @@
               <ul class="aa-product-catg">
                 <?php
                   require "php/conexion.php";
-                 
-                  if(isset($_POST['buscar'])) //Si llega algo del placeolder (Buscar)
-                  {
-                    $serch = $_POST['buscar'];
-                    $consulta = "SELECT * FROM libro WHERE titulo = '$serch'";
-                    $resultado= mysqli_query($conexion,$consulta);
-                    if(mysqli_num_rows($resultado) > 0)
-                    { //Si encontro uno
-                        $array = mysqli_fetch_array($resultado); //obtiene todo los atributos
-                ?>
-                        <li>
-                          <figure>
-                            <a class="aa-product-img" href="#"><img src="<?php echo $array['imagen'];?>" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                            <figcaption>
-                              <h4 class="aa-product-title"><a href="#"><?php echo $array['titulo'];?></a></h4>
-                              <span class="aa-product-price">$<?php echo $array['precio'];?></span>
-                              <p class="aa-product-descrip"><?php echo $array['detalle'];?></p>
-                            </figcaption>
-                          </figure>                         
-                          <div class="aa-product-hvr-content">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                            <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $array['id'];?>"><span class="fa fa-search"></span></a>                            
-                          </div>
-                          <!-- product badge -->
-                          <span class="aa-badge aa-sale" href="#">SALE!</span>
-                        </li>
-                      
-                      <!-- quick view modal -->                  
-                      <div class="modal fade" id="<?php echo $array['id'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">                      
-                            <div class="modal-body">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                              <div class="row">
-                                <!-- Modal view slider -->
-                                <div class="col-md-6 col-sm-6 col-xs-12">                              
-                                  <div class="aa-product-view-slider">                                
-                                    <div class="simpleLens-gallery-container" id="demo-1">
-                                      <div class="simpleLens-container">
-                                          <div class="simpleLens-big-image-container">
-                                              <a class="simpleLens-lens-image" data-lens-image="<?php echo $array['imagen'];?>">
-                                                  <img src="<?php echo $array['imagen'];?>" class="simpleLens-big-image">
-                                              </a>
-                                          </div>
-                                      </div>
-                                    
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                          <div class="aa-product-view-content">
-                            <h3><?php echo $array['titulo'];?></h3>
-                            <div class="aa-price-block">
-                              <span class="aa-product-view-price">$<?php echo $array['precio'];?></span>
-                              <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
-                            </div>
-                            <p><?php echo $array['detalle'];?></p>
-                           
-                            <div class="aa-prod-quantity">
-                              <form action="">
-                                <select name="" id="">
-                                  <option value="0" selected="1">1</option>
-                                  <option value="1">2</option>
-                                  <option value="2">3</option>
-                                  <option value="3">4</option>
-                                  <option value="4">5</option>
-                                  <option value="5">6</option>
-                                </select>
-                              </form>
-                              <p class="aa-prod-category">
-                                Categoria: <a href="#"><?php echo $array['genero'];?></a>
-                              </p>
-                            </div>
-                            <div class="aa-prod-view-bottom">
-                              <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                              <a href="#" class="aa-add-to-cart-btn">View Details</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>                        
-                  </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-              </div>
-                    <?php
-                    }
-                    else
-                    {
-                    ?>
-                    <p>Upsss! no se pudo encontrar el libro....</p>
-                    <?php    
-                    }
-
-                  }
-                 else{
-                  $consulta = "SELECT * FROM libro ";
+                  $consulta = "SELECT * FROM libro";
                   $resultado= mysqli_query($conexion,$consulta);
-                    while($data = mysqli_fetch_array($resultado))
-                    { 
+                  while($data = mysqli_fetch_array($resultado))
+                  { 
                 ?>
                 <!-- start single product item -->
                 <li>
@@ -403,7 +306,6 @@
               </div>
               <?php
                 }
-              }
               ?>
               <!-- / quick view modal -->   
             </div>
