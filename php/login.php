@@ -15,7 +15,7 @@
     if (mysqli_num_rows($validar_login) > 0){
         //Aqui hacemos lo de la otra pagina
         $_SESSION['correo'] = $correo;
-         header("location: ../pruebasesion.php");
+         header("location: ../index.php");
          exit();
     }
     else{

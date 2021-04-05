@@ -1,3 +1,19 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['correo'])){
+        echo '
+        <script>
+            alert("Por favor debes iniciar session");
+            window.location = "index.php";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -78,6 +94,7 @@
                 </div>
                 <!-- / language -->
 
+                
                 <!-- start currency -->
                 <div class="aa-currency">
                   <div class="dropdown">
@@ -94,7 +111,7 @@
                 <!-- / currency -->
                 <!-- start cellphone -->
                 <div class="cellphone hidden-xs">
-                  <p><span class="fa fa-phone"></span>00-62-658-658</p>
+                  <p><span class="fa fa-phone"></span>Hola <?php echo $_SESSION['correo']; ?> </p>
                 </div>
                 <!-- / cellphone -->
               </div>

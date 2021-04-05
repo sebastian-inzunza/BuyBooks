@@ -1,9 +1,9 @@
 <?php
-    session_start();
-    if (isset($_SESSION['correo'])){
-      header("location: pruebasesion.php");
-    }
-    session_destroy();
+    //session_start();
+    //if (isset($_SESSION['correo'])){
+    //  header("location: index.php");
+    //}
+    //session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +109,7 @@
               <!-- / logo  -->
                <!-- cart box -->
               <div class="aa-cartbox">
-                <a class="aa-cart-link" href="#">
+                <a class="aa-cart-link" href="checkout.php">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">Añadir a Carrito</span>
                   <!--<span class="aa-cart-notify">2</span>-->
