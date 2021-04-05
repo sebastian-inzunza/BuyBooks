@@ -178,8 +178,8 @@
           <div class="navbar-collapse collapse">
             <!-- Left nav -->
             <ul class="nav navbar-nav">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="product.html">Catalogo</a></li>
+              <li><a href="index.php">Inicio</a></li>
+              <li><a href="product.php">Catalogo</a></li>
               <!--  <li><a href="product-detail.html">Shop Single</a></li>-->
                <li><a href="contact.html">Contacto</a></li>
                <!--<li><a href="404.html">404 Page</a></li>-->
@@ -387,8 +387,8 @@
                             </figcaption>
                           </figure>                        
                           <div class="aa-product-hvr-content">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
+                            <!--<a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>-->
                             <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                          
                           </div>
                           <!-- product badge -->
@@ -399,7 +399,7 @@
                              }
                         ?>
                       </ul>
-                      <a class="aa-browse-btn" href="#">Ver Todo los Libros <span class="fa fa-long-arrow-right"></span></a>
+                      <a class="aa-browse-btn" href="product.php">Ver Todo los Libros <span class="fa fa-long-arrow-right"></span></a>
                     </div>
                     <!-- / CategoriaFilosofian -->
                     <?php
@@ -430,8 +430,8 @@
                             </figcaption>
                           </figure>                         
                           <div class="aa-product-hvr-content">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
+                            <!--<a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>-->
                             <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                            
                           </div>
                           <!-- product badge -->
@@ -442,7 +442,7 @@
                               }
                         ?>
                       </ul>
-                      <a class="aa-browse-btn" href="#">Ver Todo los Libros <span class="fa fa-long-arrow-right"></span></a>
+                      <a class="aa-browse-btn" href="product.php">Ver Todo los Libros <span class="fa fa-long-arrow-right"></span></a>
                     </div>
                     <?php
                              }
@@ -766,7 +766,7 @@
                                 <div class="simpleLens-gallery-container" id="demo-1">
                                   <div class="simpleLens-container">
                                       <div class="simpleLens-big-image-container">
-                                          <a class="simpleLens-lens-image" data-lens-image="img/view-slider/large/polo-shirt-1.png">
+                                          <a class="simpleLens-lens-image" data-lens-image="<?php echo $data['id'];?>">
                                               <img src="<?php echo $data['imagen'];?>" class="simpleLens-big-image">
                                           </a>
                                       </div>
