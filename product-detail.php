@@ -200,7 +200,7 @@
       ?>
   <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-   <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+   <img src="img/banner2.png" alt="fashion img">
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
@@ -240,7 +240,7 @@
                     <h3><?php echo $data['titulo'];?></h3>
                     <div class="aa-price-block">
                       <span class="aa-product-view-price">$<?php echo $data['precio'];?></span>
-                      <p class="aa-product-avilability">Disppnibles: <span><?php echo $data['cantidad'];?></span></p>
+                      <p class="aa-product-avilability">Disponibles: <span><?php echo $data['cantidad'];?></span></p>
                     </div>
                     <p><?php echo $data['detalle'];?></p>
                     <div class="aa-prod-quantity">
@@ -366,7 +366,7 @@
             <!-- Related product -->
             
             <div class="aa-product-related-item">
-              <h3>Related Products</h3>
+              <h3>Productos Relacionados</h3>
               <ul class="aa-product-catg aa-related-item-slider">
                 <!-- start single product item -->
                 <?php
@@ -475,7 +475,7 @@
           else{
           ?>
            <section id="aa-catg-head-banner">
-              <img src="img/fashion/fashion-header-bg-8.jpg" alt="fashion img">
+              <img src="img/banner2.png" alt="fashion img">
                 <div class="aa-catg-head-banner-area">
                   <div class="container">
                     <div class="aa-catg-head-banner-content">
