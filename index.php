@@ -147,8 +147,8 @@
               <!-- / cart box -->
               <!-- search box -->
               <div class="aa-search-box">
-                <form action="">
-                  <input type="text" name="" id="" placeholder="Search here ex. 'man' ">
+                <form action="product-detail.php"  method = "post">
+                  <input type="text" name="buscar" id="" placeholder="Buscar... ">
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
               </div>
@@ -473,7 +473,6 @@
                                 <div class="simpleLens-gallery-container" id="demo-1">
                                   <div class="simpleLens-container">
                                       <div class="simpleLens-big-image-container">
-                                          <a class="simpleLens-lens-image" data-lens-image="<?php echo $data['id'];?>">
                                               <img src="<?php echo $data['imagen'];?>" class="simpleLens-big-image">
                                           </a>
                                       </div>

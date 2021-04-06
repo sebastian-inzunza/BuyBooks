@@ -137,7 +137,7 @@
               <!-- / cart box -->
               <!-- search box -->
               <div class="aa-search-box">
-                <form action=""  method = "post">
+                <form action="product-detail.php"  method = "post">
                   <input type="text" name="buscar" id="" placeholder="Buscar...">
                   <button type="submit"><span class="fa fa-search"></span></button>
                 </form>
@@ -204,13 +204,13 @@
               <div class="aa-product-catg-head-left">
                 <form action="" class="aa-sort-form">
                   <label for="">Buscar por</label>
-                  <select name="">
+                 <!-- <select name="">
                     <option value="1" selected="Default">Default</option>
                     <option value="2">Nombre</option>
                     <option value="3">Autor</option>
                     <option value="4">Genero</option>
                   </select>
-                </form>
+                </form>-->
               </div>
               <div class="aa-product-catg-head-right">
                 <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
