@@ -2584,6 +2584,18 @@ img {
   padding: 100px 0;
   width: 100%;
 }
+
+#aa-myaccount .aaa-myaccount-area {
+  display: inline;
+  float: left;
+  padding: 5px 0;
+  width: 100%;
+}
+
+textarea{
+   resize: none;
+}
+
 #aa-myaccount .aa-myaccount-area h4 {
   border-bottom: 1px solid #ccc;
   font-size: 25px;
@@ -2603,9 +2615,21 @@ img {
 }
 
 /*---- Login form ----*/
+.aa-login-form textarea {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 100%;
+}
+
+.aa-login-form input[type="number"]{
+  border: 1px solid #ccc;
+  padding: 10px;
+}
 
 .aa-login-form input[type="text"],
-.aa-login-form input[type="password"] {
+.aa-login-form input[type="password"]{
   border: 1px solid #ccc;
   font-size: 16px;
   height: 40px;
@@ -3247,7 +3271,7 @@ img {
   margin-top: 10px;
 }
 #aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left .comments-form input {
-  height: 40px;
+  height: 50px;
   font-size: 16px;
   border-radius: 0;
   -webkit-transition: all 0.5s;
@@ -3263,6 +3287,8 @@ img {
   padding: 10px;
   width: 70%;
 }
+
+
 #aa-contact .aa-contact-area .aa-contact-address .aa-contact-address-left .comments-form .form-control:focus {
   box-shadow: none;
 }
