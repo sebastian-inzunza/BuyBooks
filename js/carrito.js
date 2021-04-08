@@ -69,7 +69,7 @@ class Carrito{
         <td>${producto.titulo}</td>
        
         <td>
-            <a href="#" class="borrar-producto fa fa-times-circle item-id" data-id="${producto.id}"></a>
+            <a href="#" class="borrar-producto fa fa-times-circle" data-id="${producto.id}"></a>
         </td>
     `;
         Listaproducto.appendChild(row);
@@ -82,9 +82,10 @@ class Carrito{
         if(e.target.classList.contains('borrar-producto')){
             e.target.parentElement.parentElement.remove();
             producto = e.target.parentElement.parentElement;
-            productID = producto.querySelector('.item-id').getAttribute('data-id');
+            productID = producto.querySelector('a').getAttribute('data-id');
         }
         this.eliminarProductoLocalStorage(productID);
+        this.calcularTotal();
     }
 
     vaciarCarrito(e){
@@ -163,6 +164,29 @@ class Carrito{
         });
     }
 
+    leerLocalStorageCompra(){
+        let productosLS;
+        productosLS = this.obtenerProductoLocalStorange();
+        productosLS.forEach(function (producto){
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>
+                    <img src="${producto.imagen}" width=100>
+                </td>
+                <td>${producto.titulo}</td>
+                <td>${producto.precio}</td>
+                <td>
+                    <input type="number" class="form-control cantidad" min="1" value=${producto.cantidad}>
+                </td>
+                <td id='subtotales'>${producto.precio * producto.cantidad}</td>
+                <td>
+                    <a href="#" class="borrar-producto fa fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
+                </td>
+            `;
+            listaCompra.appendChild(row);
+        });
+    }
+
     vaciarLocalStore(){
         localStorage.clear();
     }
@@ -181,6 +205,25 @@ class Carrito{
         }else{
              location.href =  "cart.html";
         }
+    }
+
+    calcularTotal(){
+        let productosLS;
+        let total = 0, igv = 0, subtotal = 0;
+        productosLS = this.obtenerProductoLocalStorange();
+        for(let i = 0; i < productosLS.length; i++){
+            let element = Number(productosLS[i].precio * productosLS[i].cantidad);
+            total = total + element;
+            
+        }
+        
+        igv = parseFloat(total * 0.18).toFixed(2);
+        subtotal = parseFloat(total-igv).toFixed(2);
+
+        document.getElementById('subtotal').innerHTML = "$ " + subtotal;
+        document.getElementById('igv').innerHTML = "$ " + igv;
+        document.getElementById('total').value = "$ " + total.toFixed(2);
+
     }
 
 }
