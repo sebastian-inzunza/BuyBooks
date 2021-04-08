@@ -1,4 +1,5 @@
 class Carrito{
+<<<<<<< Updated upstream
     //Añadir al carrito
     compraProducto(e){
         e.preventDefault();
@@ -16,12 +17,31 @@ class Carrito{
             precio : producto.querySelector('.item-precio').textContent,
             //id: producto.querySelector('.item-id').textContent,
             id: producto.querySelector('.item-id').getAttribute('data-id'),
+=======
+
+    //añadir el producto
+    comprarProducto(e){
+        e.preventDefault();
+
+        if (e.target.classList.contains('agregar-carrito')){
+            const producto = e.target.parentElement.parentElement;
+            this.leerDatosproductos(producto);
+        }
+    }
+
+    leerDatosproductos(producto){
+        const infoProducto = {
+            imagen : producto.querySelector('img').src,
+            titulo : producto.querySelector('h4').textContent,
+            precio : producto.querySelector('.precio span').textContent,
+>>>>>>> Stashed changes
             cantidad : 1
         }
         this.insertarCarrito(infoProducto);
     }
 
     insertarCarrito(producto){
+<<<<<<< Updated upstream
         console.log(producto.imagen,producto.titulo, producto.precio,producto.id);
         //const row = document.createElement('li');
         const row = document.createElement('tr');
@@ -56,3 +76,20 @@ class Carrito{
         }
     }
 }
+=======
+        const row = document.createElement('li');
+        row.innerHTML =`
+            <a class="aa-cartbox-img" href="#"><img src="${producto.imagen}" alt="img"></a>
+              <div class="aa-cartbox-info">
+                 <h4><a href="#">${producto.titulo}</a></h4>
+                 <p>${producto.precio}</p>
+             </div>
+            <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
+        `;
+        listaProductos.appendChild(row);
+    }
+    
+
+}
+
+>>>>>>> Stashed changes
