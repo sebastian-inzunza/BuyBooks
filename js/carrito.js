@@ -40,7 +40,7 @@ class Carrito{
         <td>${producto.titulo}</td>
         <td>${producto.precio}</td>
         <td>
-            <a href="#" class="borrar-producto fas fa-times-circle" data-id="${producto.id}"></a>
+            <a href="#" class="borrar-producto fa fa-times" data-id="${producto.id}"></a>
         </td>
     `;
         Listaproducto.appendChild(row);
