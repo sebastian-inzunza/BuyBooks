@@ -1,5 +1,4 @@
 class Carrito{
-<<<<<<< Updated upstream
     //Añadir al carrito
     compraProducto(e){
         e.preventDefault();
@@ -17,31 +16,12 @@ class Carrito{
             precio : producto.querySelector('.item-precio').textContent,
             //id: producto.querySelector('.item-id').textContent,
             id: producto.querySelector('.item-id').getAttribute('data-id'),
-=======
-
-    //añadir el producto
-    comprarProducto(e){
-        e.preventDefault();
-
-        if (e.target.classList.contains('agregar-carrito')){
-            const producto = e.target.parentElement.parentElement;
-            this.leerDatosproductos(producto);
-        }
-    }
-
-    leerDatosproductos(producto){
-        const infoProducto = {
-            imagen : producto.querySelector('img').src,
-            titulo : producto.querySelector('h4').textContent,
-            precio : producto.querySelector('.precio span').textContent,
->>>>>>> Stashed changes
             cantidad : 1
         }
         this.insertarCarrito(infoProducto);
     }
 
     insertarCarrito(producto){
-<<<<<<< Updated upstream
         console.log(producto.imagen,producto.titulo, producto.precio,producto.id);
         //const row = document.createElement('li');
         const row = document.createElement('tr');
@@ -60,10 +40,11 @@ class Carrito{
         <td>${producto.titulo}</td>
         <td>${producto.precio}</td>
         <td>
-            <a href="#" class="borrar-producto fa fa-times" data-id="${producto.id}"></a>
+            <a href="#" class="borrar-producto fa fa-times-circle" data-id="${producto.id}"></a>
         </td>
     `;
         Listaproducto.appendChild(row);
+        this.guardarProductosLocalStorange(producto);
     }
 
     eliminarProducto(e){
@@ -75,21 +56,34 @@ class Carrito{
             productID = producto.querySelector('a').getAttribute('data-id');
         }
     }
-}
-=======
-        const row = document.createElement('li');
-        row.innerHTML =`
-            <a class="aa-cartbox-img" href="#"><img src="${producto.imagen}" alt="img"></a>
-              <div class="aa-cartbox-info">
-                 <h4><a href="#">${producto.titulo}</a></h4>
-                 <p>${producto.precio}</p>
-             </div>
-            <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-        `;
-        listaProductos.appendChild(row);
+
+    vaciarCarrito(e){
+        e.preventDefault();
+        while(Listaproducto.firstChild){
+            Listaproducto.removeChild(Listaproducto.firstChild);
+        }
+       
+        return false;
+
     }
-    
 
+    guardarProductosLocalStorange(producto){
+        let productos;
+        productos = this.obtenerProductoLocalStorange();
+        productos.push(producto);
+        localStorage.setItem('productos', JSON.stringify(productos));
+    }
+
+    obtenerProductoLocalStorange(){
+        let productoLS;
+
+        //Comprobar si hay algo en LS
+        if(localStorage.getItem('productos') === null){
+            productoLS = [];
+        }
+        else {
+            productoLS = JSON.parse(localStorage.getItem('productos'));
+        }
+        return productoLS;
+    }
 }
-
->>>>>>> Stashed changes
