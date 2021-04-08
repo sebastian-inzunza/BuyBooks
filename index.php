@@ -108,44 +108,48 @@
               </div>
               <!-- / logo  -->
                <!-- cart box -->
-              <div class="aa-cartbox">
+             <!--  <div class="aa-cartbox">
                 <a class="aa-cart-link" href="checkout.php">
                   <span class="fa fa-shopping-basket"></span>
                   <span class="aa-cart-title">Añadir a Carrito</span>
-                  <!--<span class="aa-cart-notify">2</span>-->
+                  <span class="aa-cart-notify">2</span>
                 </a>
-                <div class="aa-cartbox-summary">
-                  <ul>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>                    
-                    <li>
-                      <span class="aa-cartbox-total-title">
-                        Total
-                      </span>
-                      <span class="aa-cartbox-total-price">
-                        $500
-                      </span>
-                    </li>
-                  </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                <div id="carrito">
+                    <div class="aa-cartbox-summary" id="lista-carrito">
+                      <ul>
+                      </ul>
+                      <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                    </div>
                 </div>
-              </div>
+              </div>-->
               <!-- / cart box -->
               <!-- search box -->
+              <div class="aa-cartbox  collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <span class="aa-cart-link nav-link dropdown-toggle fa fa-shopping-basket" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"></span>
+                                    <span>Añadir a Carrito</span>
+                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                    <table id="lista-carrito" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Imagen</th>
+                                                <th>Titulo</th>
+                                                <th>Precio</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+
+                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                                        Compra</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
               <div class="aa-search-box">
                 <form action="product-detail.php"  method = "post">
                   <input type="text" name="buscar" id="" placeholder="Buscar... ">
@@ -203,7 +207,7 @@
                 <!-- start prduct navigation -->
                  <ul class="nav nav-tabs aa-products-tab">
                    
-                    <li class="active"><a href="#men" data-toggle="tab">Filosofia</a></li>
+                    <li class="active"><a href="#Filosofia" data-toggle="tab">Filosofia</a></li>
                     <?php
                       require "php/conexion.php";
                       $Distinc= "SELECT DISTINCT genero FROM libro";
@@ -220,9 +224,9 @@
                     ?>
                   </ul>
                   <!-- Tab panes -->
-                  <div class="tab-content">
+              <div class="tab-content"  id="lista-product">
                     <!-- Inicio Categoria Filosofia-->
-                    <div class="tab-pane fade in active" id="men">
+                  <div class="tab-pane fade in active" id="Filosofia">
                       <ul class="aa-product-catg">
                         <!-- start single product item -->
                         <?php
@@ -235,17 +239,17 @@
                         ?>
                         <li>
                           <figure>
-                            <a class="aa-product-img" href="#"><img src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                            <a class="aa-product-img" href="#"><img class = "item-imagen" src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
+                            <a class="aa-add-card-btn agregar-carrito" href="#"><span class=""></span>Add To Cart</a>
                               <figcaption>
-                              <h4 class="aa-product-title"><a href="#"> <?php echo $data['titulo'];?> </a></h4>
-                              <span class="aa-product-price">$<?php echo $data['precio'];?></span>
+                              <h4 class="aa-product-title item-title"><a href="#"> <?php echo $data['titulo'];?> </a></h4>
+                              <span class="aa-product-price item-precio">$<?php echo $data['precio'];?></span>
                             </figcaption>
                           </figure>                        
                           <div class="aa-product-hvr-content">
-                            <!--<a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                            <!--<a href="#" data- ="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>-->
-                            <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                          
+                            <a href="#" class="item-id" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>" data-id="<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                          
                           </div>
                           <!-- product badge -->
                           <span class="aa-badge aa-sale" href="#">SALE!</span>
@@ -256,8 +260,10 @@
                         ?>
                       </ul>
                       <a class="aa-browse-btn" href="product.php">Ver Todo los Libros <span class="fa fa-long-arrow-right"></span></a>
-                    </div>
-                    <!-- / CategoriaFilosofian -->
+                  </div>
+                    <!-- / Categoria Filosofian -->
+                    
+                    <!-- Inicio Todas las demas Categorias-->
                     <?php
                       $Distinc= "SELECT DISTINCT genero FROM libro";
                       $result= mysqli_query($conexion,$Distinc);
@@ -265,46 +271,47 @@
                            { 
                              if($row['genero']!= "Filosofia"){
                       ?>
-                    
-                    <!-- Inicio Categoria Novela -->
-                    <div class="tab-pane fade" id="<?php echo $row['genero']?>">
+                  <div class="tab-pane fade" id="<?php echo $row['genero'];?>">
                       <ul class="aa-product-catg">
                         <!-- start single product item -->
                         <?php
-                        $resultado= mysqli_query($conexion,$consulta);
-                        while($data = mysqli_fetch_array($resultado))
+                            
+                             $consulta= "SELECT * FROM libro";
+                             $resultado= mysqli_query($conexion,$consulta);
+                             while($data = mysqli_fetch_array($resultado))
                              { 
-                               if($data['genero']== $row['genero']){
+                               if($data['genero']==$row['genero']){
                         ?>
                         <li>
                           <figure>
-                            <a class="aa-product-img" href="#"><img src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
-                            <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                            <figcaption>
-                              <h4 class="aa-product-title"><a href="#"><?php echo $data['titulo'];?></a></h4>
-                              <span class="aa-product-price">$<?php echo $data['precio'];?></span>
+                            <a class="aa-product-img" href="#"><img class = "item-imagen" src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
+                            <a class="aa-add-card-btn agregar-carrito" href="#"><span class=""></span>Add To Cart</a>
+                              <figcaption>
+                              <h4 class="aa-product-title item-title"><a href="#"> <?php echo $data['titulo'];?> </a></h4>
+                              <span class="aa-product-price item-precio">$<?php echo $data['precio'];?></span>
                             </figcaption>
-                          </figure>                         
+                          </figure>                        
                           <div class="aa-product-hvr-content">
-                            <!--<a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+                            <!--<a href="#" data- ="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>-->
-                            <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                            
+                            <a href="#" class="item-id" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>" data-id="<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                          
                           </div>
                           <!-- product badge -->
                           <span class="aa-badge aa-sale" href="#">SALE!</span>
                         </li>
                         <?php
                                }
-                              }
+                             }
                         ?>
                       </ul>
                       <a class="aa-browse-btn" href="product.php">Ver Todo los Libros <span class="fa fa-long-arrow-right"></span></a>
-                    </div>
-                    <?php
-                             }
-                            }
-                    ?>
-                  </div>
+                   </div>
+                   <?php
+                               }
+                              }
+                        ?>
+                   <!--Fin Novela -->
+              </div>
 
                   <!-- quick view modal -->
                   <?php
@@ -383,6 +390,52 @@
       </div>
     </div>
   </section>
+
+  <section id="cart-view">
+   <div class="container">
+     <div class="row ">
+       <div class="col-md-12 ">
+         <div class="cart-view-area ">
+           <div class="cart-view-table ">
+             <form action="">
+               <div class="table-responsive shoppingCartItemContainer">
+                  <table class="table">
+
+                   <!-- <tbody>
+                        <tr class ="shoppingCartItemContainer">
+                          <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
+                          <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
+                          <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
+                          <td>$250</td>
+                          <td><input class="aa-cart-quantity" type="number" value="1"></td>
+                        </tr>  
+                    </tbody>--> 
+                  </table>
+                </div>
+             </form>
+             <!-- Cart Total view -->
+             <div class="cart-view-total">
+               <h4>Cart Totals</h4>
+               <table class="aa-totals-table">
+                 <tbody>
+                   <tr>
+                     <th>Subtotal</th>
+                     <td>$450</td>
+                   </tr>
+                   <tr>
+                     <th>Total</th>
+                     <td>$450</td>
+                   </tr>
+                 </tbody>
+               </table>
+               <a href="#" class="aa-cart-view-btn">Proced to Checkout</a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
   <!-- / Products section -->
   <!-- banner section -->
   <section id="aa-banner">
@@ -569,5 +622,8 @@
   <script type="text/javascript" src="js/nouislider.js"></script>
   <!-- Custom js -->
   <script src="js/custom.js"></script>
+  <!-- Carrito -->
+  <script src="js/carrito.js"></script>
+  <script src="js/pedido.js"></script>
   </body>
 </html>
