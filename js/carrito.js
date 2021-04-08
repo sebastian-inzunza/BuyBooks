@@ -34,11 +34,21 @@ class Carrito{
         <a class="aa-remove-product borrar-producto item-eliminar" href="#" data-id="${producto.titulo}"><span class="fa fa-times"></span></a>
         `;*/
         row.innerHTML = `
+
+        <style> 
+
+        td{
+            display:flex;
+            justify-content: center;
+        }
+            
+        </style>
         <td>
-            <img src="${producto.imagen}" width=45>
+            <img src="${producto.imagen}" width=60>
         </td>
-        <td>${producto.titulo}</td>
         <td>${producto.precio}</td>
+        <td>${producto.titulo}</td>
+       
         <td>
             <a href="#" class="borrar-producto fa fa-times-circle" data-id="${producto.id}"></a>
         </td>

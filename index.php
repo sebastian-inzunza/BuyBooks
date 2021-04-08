@@ -134,10 +134,10 @@
                                     <table id="lista-carrito" class="table">
                                         <thead>
                                             <tr>
-                                                <th>Imagen</th>
+                                               <!-- <th>Imagen</th>
                                                 <th>Titulo</th>
                                                 <th>Precio</th>
-                                                <th></th>
+                                                <th></th> -->
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
