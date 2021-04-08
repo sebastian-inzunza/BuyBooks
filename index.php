@@ -390,52 +390,6 @@
       </div>
     </div>
   </section>
-
-  <section id="cart-view">
-   <div class="container">
-     <div class="row ">
-       <div class="col-md-12 ">
-         <div class="cart-view-area ">
-           <div class="cart-view-table ">
-             <form action="">
-               <div class="table-responsive shoppingCartItemContainer">
-                  <table class="table">
-
-                   <!-- <tbody>
-                        <tr class ="shoppingCartItemContainer">
-                          <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                          <td><a href="#"><img src="img/man/polo-shirt-1.png" alt="img"></a></td>
-                          <td><a class="aa-cart-title" href="#">Polo T-Shirt</a></td>
-                          <td>$250</td>
-                          <td><input class="aa-cart-quantity" type="number" value="1"></td>
-                        </tr>  
-                    </tbody>--> 
-                  </table>
-                </div>
-             </form>
-             <!-- Cart Total view -->
-             <div class="cart-view-total">
-               <h4>Cart Totals</h4>
-               <table class="aa-totals-table">
-                 <tbody>
-                   <tr>
-                     <th>Subtotal</th>
-                     <td>$450</td>
-                   </tr>
-                   <tr>
-                     <th>Total</th>
-                     <td>$450</td>
-                   </tr>
-                 </tbody>
-               </table>
-               <a href="#" class="aa-cart-view-btn">Proced to Checkout</a>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </section>
   <!-- / Products section -->
   <!-- banner section -->
   <section id="aa-banner">
@@ -625,5 +579,7 @@
   <!-- Carrito -->
   <script src="js/carrito.js"></script>
   <script src="js/pedido.js"></script>
+  <script src="js/compra.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.18.0/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>

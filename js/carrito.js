@@ -18,7 +18,26 @@ class Carrito{
             id: producto.querySelector('.item-id').getAttribute('data-id'),
             cantidad : 1
         }
-        this.insertarCarrito(infoProducto);
+        let productosLS;
+        productosLS = this.obtenerProductoLocalStorange();
+        productosLS.forEach(function(productoLS){
+            if (productoLS.id === infoProducto.id){
+                productosLS = productoLS.id;
+            }
+        });
+
+        if (productosLS === infoProducto.id){
+            Swal.fire({
+                type: 'info',
+                title: 'Oops...',
+                text: 'El producto ya está agregado',
+                showConfirmButton: false,
+                timer: 1000
+            })
+        }else{
+           this.insertarCarrito(infoProducto);
+        }
+        
     }
 
     insertarCarrito(producto){
@@ -50,7 +69,7 @@ class Carrito{
         <td>${producto.titulo}</td>
        
         <td>
-            <a href="#" class="borrar-producto fa fa-times-circle" data-id="${producto.id}"></a>
+            <a href="#" class="borrar-producto fa fa-times-circle item-id" data-id="${producto.id}"></a>
         </td>
     `;
         Listaproducto.appendChild(row);
@@ -63,8 +82,9 @@ class Carrito{
         if(e.target.classList.contains('borrar-producto')){
             e.target.parentElement.parentElement.remove();
             producto = e.target.parentElement.parentElement;
-            productID = producto.querySelector('a').getAttribute('data-id');
+            productID = producto.querySelector('.item-id').getAttribute('data-id');
         }
+        this.eliminarProductoLocalStorage(productID);
     }
 
     vaciarCarrito(e){
@@ -72,7 +92,7 @@ class Carrito{
         while(Listaproducto.firstChild){
             Listaproducto.removeChild(Listaproducto.firstChild);
         }
-       
+        this.vaciarLocalStore();
         return false;
 
     }
@@ -96,4 +116,71 @@ class Carrito{
         }
         return productoLS;
     }
+
+
+    eliminarProductoLocalStorage(productID){
+        let productosLS;
+        //Obtenemos el arreglo de productos
+        productosLS = this.obtenerProductoLocalStorange();
+        //Comparar el id del producto borrado con LS
+        productosLS.forEach(function(productoLS, index){
+            if(productoLS.id === productID){
+                productosLS.splice(index, 1);
+            }
+        });
+
+        //Añadimos el arreglo actual al LS
+        localStorage.setItem('productos', JSON.stringify(productosLS));
+    }
+
+    leerLocalStorage(){
+        let productosLS;
+        productosLS = this.obtenerProductoLocalStorange();
+        productosLS.forEach(function (producto){
+            //Construir plantilla
+            const row = document.createElement('tr');
+            row.innerHTML = `
+
+        <style> 
+
+            td{
+             display:flex;
+             justify-content: center;
+          }
+            
+        </style>
+        <td>
+            <img src="${producto.imagen}" width=60>
+      </td>
+            <td>${producto.precio}</td>
+        <td>${producto.titulo}</td>
+       
+        <td>
+            <a href="#" class="borrar-producto fa fa-times-circle item-id" data-id="${producto.id}"></a>
+        </td>
+         `;
+            Listaproducto.appendChild(row);
+        });
+    }
+
+    vaciarLocalStore(){
+        localStorage.clear();
+    }
+
+    procesarPedido(e){
+        e.preventDefault();
+
+        if(this.obtenerProductoLocalStorange().length === 0){
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'El carrito está vacío, agrega algún producto',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        }else{
+             location.href =  "cart.html";
+        }
+    }
+
 }
