@@ -207,6 +207,21 @@ class Carrito{
         }
     }
 
+    procesarCompra(e) {
+        e.preventDefault();
+        if (this.obtenerProductoLocalStorange().length === 0) {
+            Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'No hay productos, selecciona alguno',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(function () {
+                window.location = "index.php";
+            })
+        }
+    }
+
     calcularTotal(){
         let productosLS;
         let total = 0, igv = 0, subtotal = 0;

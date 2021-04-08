@@ -13,19 +13,7 @@ function cargarEventos(){
         
         carrito.addEventListener('click', (e) => { compra.eliminarProducto(e)});
         compra.calcularTotal();
-        procesarCompraBtn.addEventListener('click', procesarCompra);
-
+        procesarCompraBtn.addEventListener('click',(e) => {compra.procesarCompra(e)});
 }
 
-function procesarCompra() {
-    
-    if (compra.obtenerProductoLocalStorange().length === 0) {
-        Swal.fire({
-            type: 'error',
-            title: 'Oops...',
-            text: 'No hay productos, selecciona alguno',
-            showConfirmButton: false,
-            timer: 3000
-        })
-    }
-}
+
