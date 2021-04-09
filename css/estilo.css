@@ -1,0 +1,354 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /** Es equivalente a 1rem = 10px**/
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'PT Sans', sans-serif;
+}
+
+/**Globales**/
+.contenedor {
+    max-width: 850px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+
+    font-size: 4.2rem;
+}
+
+h2 {
+    font-size: 2.9rem;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+h4 {
+    font-size: 1.8rem;
+}
+
+span {
+    font-weight: bold;
+}
+
+/**Utilidades**/
+.centrar-text {
+    text-align: center;
+}
+
+.no-margin {
+    margin: 0;
+}
+  h2{
+    color: white;
+}
+
+/**Header**/
+@media(min-width:768px) {
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.site-header {
+    background-image: url(../img/pago.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    
+}
+
+.site-header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.site-header h1 {
+    text-align: center;
+    font-weight: 400;
+}
+
+.site-header h1 span {
+    font-weight: 800;
+}
+
+/**Header texto**/
+.texto-header {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.texto-header p {
+    font-size: 1.7rem;
+}
+
+@media(min-width: 768px) {
+    .texto-header {
+        margin-top: 15rem;
+    }
+}
+
+/**Botones**/
+.btn {
+    display: block;
+    text-align: center;
+    padding: .5rem .5rem;
+    margin: 2rem 0;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    flex: 0 0 100%;
+
+}
+.btn:hover{
+    cursor: pointer;
+}
+
+@media(min-width: 768px) {
+    .btn {
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+
+.btn-primario {
+    background-color: #000000;
+}
+
+.btn-secundario {
+    background-color: #784d3c;
+}
+
+/**Navegacion**/
+.navegacion a {
+    text-align: center;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.navegacion a:hover {
+    color: #586484;
+
+}
+
+@media(min-width: 768px) {
+    .navegacion a {
+        display: inline;
+        margin-right: 1.5rem;
+    }
+
+    .navegacion a:last-of-type {
+        margin: 0;
+    }
+}
+
+/**C0ontenedor blog**/
+
+
+.contenedor article {
+    margin-top: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: black;
+
+}
+
+/**Contenido-- principal home**/
+
+.contenido-principal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog,
+.cursos {
+    flex: 0 0 100%;
+}
+
+.cursos {
+    order: -1;
+}
+
+@media(min-width: 768px) {
+    .contenido-principal {
+        justify-content: space-between;
+    }
+
+    .blog {
+        flex-basis: 66.6%;
+    }
+
+    .cursos {
+        flex-basis: calc(33.3% - 4rem);
+        order: 2;
+    }
+
+}
+
+
+/** opcional **/
+
+.entrada-blog {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.entrada-blog:last-of-type {
+    border: none;
+}
+
+.cursos-lista {
+    padding: 0;
+    list-style: none;
+}
+
+.curso {
+    padding-bottom: 3rem;
+    border-bottom: solid #e1e1e1;
+}
+
+.curso:last-of-type {
+    border: none;
+}
+
+.curso p {
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.curso p span,
+.curso p.descripcion{
+    font-weight: 400;
+
+}
+
+.site-footer {
+    background-color: black;
+    padding: .5rem;
+}
+
+.site-footer p {
+    color: white;
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: 'PT Sans', sans-serif;
+    text-align: center;
+}
+
+.site-footer p span {
+    font-weight: 700;
+}
+
+/**Nosotros  grid **/
+
+@media(min-width: 768px) {
+    .grid {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .centrar-columnas{
+        justify-content: center;
+    }
+    .columna-4{
+        flex: 0 0 calc(33.3% - 1.2rem);
+    }
+
+    .columna-6 {
+        flex: 0 0 calc(50% - 1.2rem)
+    }
+    
+    .columna-8{
+        flex: 0 0 calc(66.6% - 1.2rem);
+    }
+    .columna-10{
+        flex: 0 0 calc(83.3% - 1rem);
+    }
+    .columna-12{
+        flex: 0 0 100%;
+    }
+}
+
+/**Contacto **/
+.contacto-formulario{
+    background-color: white;
+    padding: 5rem;
+}
+
+@media(min-width: 768px){
+    .contacto-formulario{
+        margin-top: -10rem;
+    }
+}
+
+.contacto-formulario .campo{
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.contacto-formulario .campo label{
+    flex: 0 0 20rem;
+}
+
+select{
+    display: flex;
+    padding: 1rem;
+    width: 60%;
+}
+
+
+.contacto-formulario .campo input:not([type="submit"]),
+.contacto-formulario textarea{
+    flex: 1;
+    border: 1px solid #e1e1e1;
+    padding: .5rem;
+}
+
+.contacto-formulario textarea{
+    height: 20rem;
+}
+
+
+.contacto-formulario .enviar{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.radio{
+    display: flex;
+    justify-content: left;
+}
