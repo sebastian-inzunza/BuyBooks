@@ -307,7 +307,7 @@
                             <a class="aa-add-card-btn agregar-carrito" href="#"><span class=""></span>Add To Cart</a>
                               <figcaption>
                               <h4 class="aa-product-title item-title"><a href="#"> <?php echo $data['titulo'];?> </a></h4>
-                              <span class="aa-product-price item-precio"><p>$</p><?php echo $data['precio'];?></span>
+                              <span class="aa-product-price">$<span class="aa-product-price item-precio"><?php echo $data['precio'];?></span></span>
                             </figcaption>
                           </figure>                        
                           <div class="aa-product-hvr-content">

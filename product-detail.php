@@ -104,41 +104,31 @@
               </div>
               <!-- / logo  -->
                <!-- cart box -->
+               
               <div class="aa-cartbox">
-                <a class="aa-cart-link" href="#">
-                  <span class="fa fa-shopping-basket"></span>
-                  <span class="aa-cart-title">SHOPPING CART</span>
-                  <span class="aa-cart-notify">2</span>
-                </a>
-                <div class="aa-cartbox-summary">
-                  <ul>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>                    
-                    <li>
-                      <span class="aa-cartbox-total-title">
-                        Total
-                      </span>
-                      <span class="aa-cartbox-total-price">
-                        $500
-                      </span>
-                    </li>
-                  </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="#">Checkout</a>
-                </div>
+              <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <span class="aa-cart-link nav-link dropdown-toggle fa fa-shopping-basket" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"></span>
+                                    <span>Añadir a Carrito</span>
+                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                    <table id="lista-carrito" class="table">
+                                        <thead>
+                                            <tr>
+                                               <!-- <th>Imagen</th>
+                                                <th>Titulo</th>
+                                                <th>Precio</th>
+                                                <th></th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+
+                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar Compra</a>
+                                </div>
+                            </li>
+                        </ul>
               </div>
               <!-- / cart box -->
               <!-- search box -->
@@ -222,50 +212,23 @@
         <div class="col-md-12">
           <div class="aa-product-details-area">
             <div class="aa-product-details-content">
-              <div class="row">
-                <!-- Modal view slider -->
-                <div class="col-md-5 col-sm-5 col-xs-12">                              
-                  <div class="aa-product-view-slider">                                
-                    <div id="demo-1" class="simpleLens-gallery-container">
-                      <div class="simpleLens-container">
-                        <div class="simpleLens-big-image-container"><img src="<?php echo $data['imagen'];?>" class="simpleLens-big-image"></div>
-                      </div>
-                      
-                    </div>
-                  </div>
+              <div class="row" id="lista-product">
+                <div class="col-md-5 col-sm-5 col-xs-12">  
+                  <img class = "item-imagen" src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
                 </div>
-                <!-- Modal view content -->
                 <div class="col-md-7 col-sm-7 col-xs-12">
-                  <div class="aa-product-view-content">
-                    <h3><?php echo $data['titulo'];?></h3>
-                    <div class="aa-price-block">
-                      <span class="aa-product-view-price">$<?php echo $data['precio'];?></span>
-                      <p class="aa-product-avilability">Disponibles: <span><?php echo $data['cantidad'];?></span></p>
-                    </div>
+                    <h3 class=" item-title"><?php echo $data['titulo'];?></h3>
+                    <span>$<span class="aa-product-view-price item-precio"><?php echo $data['precio'];?></span></span>
+                    <p class="aa-product-avilability">Disponibles: <span><?php echo $data['cantidad'];?></span></p>
                     <p><?php echo $data['detalle'];?></p>
                     <div class="aa-prod-quantity">
-                      <form action="">
-                        <select id="" name="">
-                          <option selected="1" value="0">1</option>
-                          <option value="1">2</option>
-                          <option value="2">3</option>
-                          <option value="3">4</option>
-                          <option value="4">5</option>
-                          <option value="5">6</option>
-                        </select>
-                      </form>
-                      <p class="aa-prod-category">
-                        Genero: <a href="#"><?php echo $data['genero'];?></a>
+                      <p class="aa-prod-category">Genero: <a href="#"><?php echo $data['genero'];?></a>
                       </p>
-                    </div>
-                    <div class="aa-prod-view-bottom">
-                      <a class="aa-add-to-cart-btn" href="#">Añadir a Carrito</a>
-                      <!--<a class="aa-add-to-cart-btn" href="#">Wishlist</a>
-                      <a class="aa-add-to-cart-btn" href="#">Compare</a>-->
-                    </div>
-                  </div>
+                    </div>             
+                      <a class="aa-add-to-cart-btn agregar-carrito" href="#">Añadir a Carrito</a>
+                      <a href="#" class="item-id" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>" data-id="<?php echo $data['id'];?>"></a>                                          
                 </div>
-              </div>
+              </div><!--AQUIIII-->
       </div>
             <!--<div class="aa-product-details-bottom">
               <ul class="nav nav-tabs" id="myTab2">
@@ -610,6 +573,11 @@
   <script type="text/javascript" src="js/nouislider.js"></script>
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
+
+  <script src="js/carrito.js"></script>
+  <script src="js/pedido.js"></script>
+  <script src="js/compra.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.18.0/dist/sweetalert2.all.min.js"></script>
 
   </body>
 </html>
