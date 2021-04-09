@@ -179,7 +179,9 @@ class Carrito{
                 </td>
                 <td id='subtotales'>${producto.precio * producto.cantidad}</td>
                 <td>
-                    <a href="#" class="borrar-producto fa fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
+                    <form ="../">
+                        <a href="#" class="borrar-producto fa fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
+                    <form>
                 </td>
             `;
             listaCompra.appendChild(row);
@@ -218,6 +220,10 @@ class Carrito{
             }).then(function () {
                 window.location = "index.php";
             })
+        }
+        else{
+            window.location = "product.php";
+            this.vaciarLocalStore();
         }
     }
 

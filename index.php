@@ -99,7 +99,7 @@
               <!-- logo  -->
               <div class="aa-logo">
                 <!-- Text based logo -->
-                <a href="index.html">
+                <a href="index.php">
                   <span class="fa fa-leanpub"></span>
                   <p>Buy<strong>Books</strong> <span>Tus Libros Favoritos</span></p>
                 </a>
@@ -223,7 +223,7 @@
                     ?>
                   </ul>
                   <!-- Tab panes -->
-              <div class="tab-content"  id="lista-product">
+                <div class="tab-content"  id="lista-product">
                     <!-- Inicio Categoria Filosofia-->
                   <div class="tab-pane fade in active" id="Filosofia">
                       <ul class="aa-product-catg">

@@ -35,7 +35,7 @@
     <!-- price picker slider -->
     <link rel="stylesheet" type="text/css" href="css/nouislider.css">
     <!-- Theme color -->
-    <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">
+    <link id="switcher" href="css/theme-color/dark-red-theme.css" rel="stylesheet">
     <!-- Top Slider CSS -->
     <link href="css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
@@ -94,7 +94,8 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="php/logout.php"  class="hidden-xs">Logout</a></li>
+                <li><a href="segumiento_Admin.php"  class="hidden-xs">Seguimineto</a></li>
+                <li><a href="php/logout.php"  class="hidden-xs">Logout</a></li>
                 </ul>
               </div>
             </div>
@@ -120,11 +121,7 @@
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
               </div>
-              <!-- / logo  -->
-               <!-- cart box -->
-            
-              <!-- / cart box -->
-              <!-- search box -->
+             
            
               <!-- / search box -->             
             </div>
