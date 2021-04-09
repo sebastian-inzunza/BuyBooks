@@ -14,7 +14,6 @@ class Carrito{
             imagen : producto.querySelector('.item-imagen').src,
             titulo : producto.querySelector('.item-title').textContent,
             precio : producto.querySelector('.item-precio').textContent,
-            //id: producto.querySelector('.item-id').textContent,
             id: producto.querySelector('.item-id').getAttribute('data-id'),
             cantidad : 1
         }

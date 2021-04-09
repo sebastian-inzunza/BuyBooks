@@ -251,7 +251,27 @@
                             <a href="#" class="item-id" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>" data-id="<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                          
                           </div>
                           <!-- product badge -->
-                          <span class="aa-badge aa-sale" href="#">SALE!</span>
+                          <?php
+                           if($data['cantidad'] > 0){
+                              if($data['cantidad'] < 5){
+                               
+                             
+                        ?>
+                          <span class="aa-badge aa-hot" href="#">ULTIMOS!</span>
+                          <?php
+                               }
+                               else{
+                               ?>
+                          <span class="aa-badge aa-sale" href="#">DISPONIBLE!</span>
+                          <?php
+                             }
+                          }
+                          else{
+                        ?>
+                         <span class="aa-badge S" href="#">AGOTADOS!</span>
+                         <?php
+                               }
+                        ?>
                         </li>
                         <?php
                                }
@@ -296,7 +316,27 @@
                             <a href="#" class="item-id" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>" data-id="<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                          
                           </div>
                           <!-- product badge -->
-                          <span class="aa-badge aa-sale" href="#">SALE!</span>
+                          <?php
+                           if($data['cantidad'] > 0){
+                              if($data['cantidad'] < 5){
+                               
+                             
+                        ?>
+                          <span class="aa-badge aa-hot" href="#">ULTIMOS!</span>
+                          <?php
+                               }
+                               else{
+                               ?>
+                          <span class="aa-badge aa-sale" href="#">DISPONIBLE!</span>
+                          <?php
+                             }
+                          }
+                          else{
+                        ?>
+                         <span class="aa-badge aa-sold-out" href="#">AGOTADOS!</span>
+                         <?php
+                               }
+                        ?>
                         </li>
                         <?php
                                }
@@ -405,71 +445,6 @@
     </div>
     <div></div>
   </section>
-  <!-- popular section -->
-  <!-- / popular section -->
-  <!-- Support section -->
-  <!--<section id="aa-support">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-support-area">
-            <!-- single support
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="aa-support-single">
-                <span class="fa fa-truck"></span>
-                <h4>FREE SHIPPING</h4>
-                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
-              </div>
-            </div>
-            <!-- single support
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="aa-support-single">
-                <span class="fa fa-clock-o"></span>
-                <h4>30 DAYS MONEY BACK</h4>
-                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
-              </div>
-            </div>
-            <!-- single support
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="aa-support-single">
-                <span class="fa fa-phone"></span>
-                <h4>SUPPORT 24/7</h4>
-                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-  <!-- / Support section -->
-
-
-  <!-- Client Brand -->
-  <!--<section id="aa-client-brand">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-client-brand-area">
-            <ul class="aa-client-brand-slider">
-              <li><a href="#"><img src="img/client-brand-java.png" alt="java img"></a></li>
-              <li><a href="#"><img src="img/client-brand-jquery.png" alt="jquery img"></a></li>
-              <li><a href="#"><img src="img/client-brand-html5.png" alt="html5 img"></a></li>
-              <li><a href="#"><img src="img/client-brand-css3.png" alt="css3 img"></a></li>
-              <li><a href="#"><img src="img/client-brand-wordpress.png" alt="wordPress img"></a></li>
-              <li><a href="#"><img src="img/client-brand-joomla.png" alt="joomla img"></a></li>
-              <li><a href="#"><img src="img/client-brand-java.png" alt="java img"></a></li>
-              <li><a href="#"><img src="img/client-brand-jquery.png" alt="jquery img"></a></li>
-              <li><a href="#"><img src="img/client-brand-html5.png" alt="html5 img"></a></li>
-              <li><a href="#"><img src="img/client-brand-css3.png" alt="css3 img"></a></li>
-              <li><a href="#"><img src="img/client-brand-wordpress.png" alt="wordPress img"></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-  <!-- / Client Brand -->
 
   <!-- footer -->  
   <footer id="aa-footer">
@@ -509,24 +484,7 @@
       </div>
      </div>
     </div>
-    <!-- footer-bottom -->
-    <!--<div class="aa-footer-bottom">
-      <div class="container">
-        <div class="row">
-        <div class="col-md-12">
-          <div class="aa-footer-bottom-area">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
-            <div class="aa-footer-payment">
-              <span class="fa fa-cc-mastercard"></span>
-              <span class="fa fa-cc-visa"></span>
-              <span class="fa fa-paypal"></span>
-              <span class="fa fa-cc-discover"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>-->
+
     </footer>
   <!-- / footer -->
 

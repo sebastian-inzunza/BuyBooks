@@ -66,12 +66,14 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.html">My Account</a></li>
-                  <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
-                  <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                </ul>
+                  <li><a href="cart.html">Mi Carrito</a></li>
+                
+                  <!-- < li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>-->
+                  <!-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li>-->
+                  
+                   <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>  
+                   <li class="hidden-xs"><a href="php/logout.php">Logout</a></li>
+                 </ul>
               </div>
             </div>
           </div>
@@ -99,40 +101,29 @@
               <!-- / logo  -->
                <!-- cart box -->
               <div class="aa-cartbox">
-                <a class="aa-cart-link" href="#">
-                  <span class="fa fa-shopping-basket"></span>
-                  <span class="aa-cart-title">Añadir a Carrito</span>
-                <!--<span class="aa-cart-notify">2</span>-->
-                </a>
-                <div class="aa-cartbox-summary">
-                  <ul>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-2.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>
-                    <li>
-                      <a class="aa-cartbox-img" href="#"><img src="img/woman-small-1.jpg" alt="img"></a>
-                      <div class="aa-cartbox-info">
-                        <h4><a href="#">Product Name</a></h4>
-                        <p>1 x $250</p>
-                      </div>
-                      <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                    </li>                    
-                    <li>
-                      <span class="aa-cartbox-total-title">
-                        Total
-                      </span>
-                      <span class="aa-cartbox-total-price">
-                        $500
-                      </span>
-                    </li>
-                  </ul>
-                  <a class="aa-cartbox-checkout aa-primary-btn" href="#">Checkout</a>
-                </div>
+                     <ul class="navbar-nav mr-auto">
+                            <li class="nav-item dropdown">
+                                <span class="aa-cart-link nav-link dropdown-toggle fa fa-shopping-basket" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"></span>
+                                    <span>Añadir a Carrito</span>
+                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                                    <table id="lista-carrito" class="table">
+                                        <thead>
+                                            <tr>
+                                               <!-- <th>Imagen</th>
+                                                <th>Titulo</th>
+                                                <th>Precio</th>
+                                                <th></th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+
+                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar Compra</a>
+                                </div>
+                            </li>
+                        </ul>
               </div>
               <!-- / cart box -->
               <!-- search box -->
@@ -217,7 +208,7 @@
                 <a id="list-catg" href="#"><span class="fa fa-list"></span></a>
               </div>
             </div>
-            <div class="aa-product-catg-body">
+            <div class="aa-product-catg-body" id="lista-product">
               <ul class="aa-product-catg">
                 <?php
                   require "php/conexion.php";
@@ -229,21 +220,38 @@
                 <!-- start single product item -->
                 <li>
                   <figure>
-                    <a class="aa-product-img" href="#"><img src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
+                  <img class = "item-imagen" src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
+                  <a class="aa-add-card-btn agregar-carrito" href="#"><span class=""></span>Add To Cart</a>
                     <figcaption>
-                      <h4 class="aa-product-title"><a href="#"><?php echo $data['titulo'];?></a></h4>
-                      <span class="aa-product-price">$<?php echo $data['precio'];?></span>
-                      <p class="aa-product-descrip"><?php echo $data['detalle'];?></p>
+                      <h4 class="aa-product-title item-title"><a href="#"> <?php echo $data['titulo'];?> </a></h4>
+                      <span class="aa-product-price">$<span class="aa-product-price item-precio"><?php echo $data['precio'];?></span></span>
                     </figcaption>
                   </figure>                         
                   <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                            
+                    <a href="#" class="item-id" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>" data-id="<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                          
                   </div>
                   <!-- product badge -->
-                  <span class="aa-badge aa-sale" href="#">SALE!</span>
+                  <?php
+                           if($data['cantidad'] > 0){
+                              if($data['cantidad'] < 5){
+                               
+                             
+                        ?>
+                          <span class="aa-badge aa-hot" href="#">ULTIMOS!</span>
+                          <?php
+                               }
+                               else{
+                               ?>
+                          <span class="aa-badge aa-sale" href="#">DISPONIBLE!</span>
+                          <?php
+                             }
+                          }
+                          else{
+                        ?>
+                         <span class="aa-badge aa-sold-out" href="#">AGOTADOS!</span>
+                         <?php
+                               }
+                        ?>
                 </li>
                
               <!-- quick view modal -->                  
@@ -504,7 +512,12 @@
   <script type="text/javascript" src="js/nouislider.js"></script>
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
-  
+  <script src="js/carrito.js"></script>
+   <!-- Carrito js -->
+   <script src="js/carrito.js"></script>
+  <script src="js/pedido.js"></script>
+  <script src="js/compra.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.18.0/dist/sweetalert2.all.min.js"></script>
 
   </body>
 </html>
