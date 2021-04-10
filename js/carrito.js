@@ -122,6 +122,20 @@ class Carrito{
         return productoLS;
     }
 
+    
+    obtenerPedidoLocalStorange(){
+        let productoLS;
+
+        //Comprobar si hay algo en LS
+        if(localStorage.getItem('pedido') === null){
+            productoLS = [];
+        }
+        else {
+            productoLS = JSON.parse(localStorage.getItem('pedido'));
+        }
+        return productoLS;
+    }
+
 
     eliminarProductoLocalStorage(productID){
         let productosLS;
@@ -227,11 +241,43 @@ class Carrito{
             })
         }
         else{
-            window.location = "product.php";
-            this.vaciarLocalStore();
-            this.pedidosLocal();
+            //window.location = "product.php";
+            this.obtenerPedido();
+           // this.vaciarLocalStore();
+            
         }
     }
+
+    obtenerPedido(){
+        let productosLS;
+        let pedido;
+        productosLS = this.obtenerProductoLocalStorange();
+        var libros = '', total = 0, estatus = 'preparando paquete';
+        productosLS = this.obtenerProductoLocalStorange();
+        productosLS.forEach(function (producto){
+            libros += producto.titulo;
+            total += Number(producto.precio);
+        });
+       
+        const infoPedido = {
+            titulo : libros,
+            precio : total, 
+            estatus : 'prerando paquete'
+        }
+        
+        //console.log(infoPedido.titulo, infoPedido.precio, infoPedido.estatus);
+        this.guardarPedidoLocalStorange(infoPedido);
+
+     
+     }
+
+     guardarPedidoLocalStorange(producto)
+     {
+        let productos;
+        productos = this.obtenerPedidoLocalStorange();
+        productos.push(producto);
+        localStorage.setItem('pedidos', JSON.stringify(productos));
+     }
 
     calcularTotal(){
         let productosLS;
