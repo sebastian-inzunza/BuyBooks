@@ -6,6 +6,7 @@ const product = document.getElementById('lista-product'); ///toma TODOOOO
 const Listaproducto = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
 const procesarPedidoBtn = document.getElementById('procesar-pedido');
+const pedidos = document.getElementById("pedido");
 
 cargarEventos();
 

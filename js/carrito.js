@@ -39,6 +39,9 @@ class Carrito{
         
     }
 
+
+
+
     insertarCarrito(producto){
         console.log(producto.imagen,producto.titulo, producto.precio,producto.id);
         //const row = document.createElement('li');
@@ -61,6 +64,7 @@ class Carrito{
         }
             
         </style>
+        <div id = "pedido">
         <td>
             <img src="${producto.imagen}" width=60>
         </td>
@@ -70,6 +74,7 @@ class Carrito{
         <td>
             <a href="#" class="borrar-producto fa fa-times-circle" data-id="${producto.id}"></a>
         </td>
+        </div>
     `;
         Listaproducto.appendChild(row);
         this.guardarProductosLocalStorange(producto);
@@ -224,6 +229,7 @@ class Carrito{
         else{
             window.location = "product.php";
             this.vaciarLocalStore();
+            this.pedidosLocal();
         }
     }
 

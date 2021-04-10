@@ -191,10 +191,10 @@
       <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
           <div class="aa-product-catg-content">
-            <div class="aa-product-catg-head">
+          
               <div class="aa-product-catg-head-left">
                 <form action="" class="aa-sort-form">
-                  <label for="">Buscar por</label>
+            
                  <!-- <select name="">
                     <option value="1" selected="Default">Default</option>
                     <option value="2">Nombre</option>
@@ -204,10 +204,10 @@
                 </form>-->
               </div>
               <div class="aa-product-catg-head-right">
-                <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
-                <a id="list-catg" href="#"><span class="fa fa-list"></span></a>
+                <!--<a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
+                <a id="list-catg" href="#"><span class="fa fa-list"></span></a>-->
               </div>
-            </div>
+            
             <div class="aa-product-catg-body" id="lista-product">
               <ul class="aa-product-catg">
                 <?php
@@ -287,23 +287,11 @@
                             <p><?php echo $data['detalle'];?></p>
                            
                             <div class="aa-prod-quantity">
-                              <form action="">
-                                <select name="" id="">
-                                  <option value="0" selected="1">1</option>
-                                  <option value="1">2</option>
-                                  <option value="2">3</option>
-                                  <option value="3">4</option>
-                                  <option value="4">5</option>
-                                  <option value="5">6</option>
-                                </select>
-                              </form>
                               <p class="aa-prod-category">
-                                Categoria: <a href="#"><?php echo $data['genero'];?></a>
+                                Categoria: <span><?php echo $data['genero'];?></span>
                               </p>
                             </div>
                             <div class="aa-prod-view-bottom">
-                              <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                              <a href="#" class="aa-add-to-cart-btn">View Details</a>
                             </div>
                           </div>
                         </div>
@@ -348,30 +336,31 @@
             <!-- single sidebar -->
             <!-- single sidebar -->
             <div class="aa-sidebar-widget">
-              <h3>Vistos recientemente</h3>
+              <h3>Agregados recientemente</h3>
               <div class="aa-recently-views">
                 <ul>
+                <?php
+                            
+                            $consulta= "SELECT * FROM libro";
+                            $resultado= mysqli_query($conexion,$consulta);
+                            while($data = mysqli_fetch_array($resultado))
+                            { 
+                              $cont = 32;
+                              if($data['id']>=$cont){
+                       ?>
+
                   <li>
-                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-2.jpg"></a>
+                    <img class="aa-cartbox-img"alt="img" src="<?php echo $data['imagen'];?>">
                     <div class="aa-cartbox-info">
-                      <h4><a href="#">Product Name</a></h4>
-                      <p>1 x $250</p>
+                    <h4 class="aa-product-title item-title"><?php echo $data['titulo'];?></h4>
+                    <span class="aa-product-price">$<span class="aa-product-price item-precio"><?php echo $data['precio'];?></span></span>
                     </div>                    
                   </li>
-                  <li>
-                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-1.jpg"></a>
-                    <div class="aa-cartbox-info">
-                      <h4><a href="#">Product Name</a></h4>
-                      <p>1 x $250</p>
-                    </div>                    
-                  </li>
-                   <li>
-                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-2.jpg"></a>
-                    <div class="aa-cartbox-info">
-                      <h4><a href="#">Product Name</a></h4>
-                      <p>1 x $250</p>
-                    </div>                    
-                  </li>                                      
+                  <?php
+                        }
+                        $cont++;
+                      }
+                    ?>
                 </ul>
               </div>                            
             </div>
@@ -380,27 +369,28 @@
               <h3>Productos mejor valorados</h3>
               <div class="aa-recently-views">
                 <ul>
+                <?php
+                            
+                            $consulta= "SELECT * FROM libro";
+                            $resultado= mysqli_query($conexion,$consulta);
+                            while($data = mysqli_fetch_array($resultado))
+                            { 
+                          
+                              if($data['precio']>=400){
+                       ?>
                   <li>
-                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-2.jpg"></a>
+                    <img  class="aa-cartbox-img "alt="img" src="<?php echo $data['imagen'];?>">
                     <div class="aa-cartbox-info">
-                      <h4><a href="#">Product Name</a></h4>
-                      <p>1 x $250</p>
+                    <h4 class="aa-product-title item-title"><?php echo $data['titulo'];?></h4>
+                    <span class="aa-product-price">$<span class="aa-product-price item-precio"><?php echo $data['precio'];?></span></span>
                     </div>                    
                   </li>
-                  <li>
-                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-1.jpg"></a>
-                    <div class="aa-cartbox-info">
-                      <h4><a href="#">Product Name</a></h4>
-                      <p>1 x $250</p>
-                    </div>                    
-                  </li>
-                   <li>
-                    <a href="#" class="aa-cartbox-img"><img alt="img" src="img/woman-small-2.jpg"></a>
-                    <div class="aa-cartbox-info">
-                      <h4><a href="#">Product Name</a></h4>
-                      <p>1 x $250</p>
-                    </div>                    
-                  </li>                                      
+                  <?php
+                        }
+              
+                      }
+                    ?>
+
                 </ul>
               </div>                            
             </div>
