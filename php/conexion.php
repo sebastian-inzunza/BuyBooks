@@ -1,5 +1,5 @@
 <?php
 
-    $conexion = mysqli_connect("localhost", "root", "", "e-commerce");
+    $conexion = mysqli_connect("localhost", "root", "", "comercio");
     
 ?>

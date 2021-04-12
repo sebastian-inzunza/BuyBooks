@@ -241,12 +241,15 @@ class Carrito{
             })
         }
         else{
+            //this.vaciarLocalStore();
             //window.location = "product.php";
             this.obtenerPedido();
-           // this.vaciarLocalStore();
-            
         }
     }
+
+
+
+
 
     obtenerPedido(){
         let productosLS;

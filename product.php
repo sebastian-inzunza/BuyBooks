@@ -1,3 +1,6 @@
+<?php
+require "php/carrito.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -100,30 +103,36 @@
               </div>
               <!-- / logo  -->
                <!-- cart box -->
-              <div class="aa-cartbox">
-                     <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown">
-                                <span class="aa-cart-link nav-link dropdown-toggle fa fa-shopping-basket" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false"></span>
-                                    <span>Añadir a Carrito</span>
-                                <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
-                                    <table id="lista-carrito" class="table">
-                                        <thead>
-                                            <tr>
-                                               <!-- <th>Imagen</th>
-                                                <th>Titulo</th>
-                                                <th>Precio</th>
-                                                <th></th> -->
-                                            </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
-
-                                    <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-                                    <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar Compra</a>
-                                </div>
-                            </li>
-                        </ul>
+               <div class="aa-cartbox">
+                <a class="aa-cart-link" href="#">
+                  <span class="fa fa-shopping-basket"></span>
+                  <span class="aa-cart-title">SHOPPING CART</span>
+                  <span class="aa-cart-notify"><?php echo (empty($_SESSION['CARRITO'])) ?0: count($_SESSION['CARRITO']) ?></span>
+                </a>
+                <div class="aa-cartbox-summary">
+                  <ul>
+                      <?php if (!empty($_SESSION['CARRITO'])){?>
+                      <?php foreach($_SESSION['CARRITO'] as $indice=>$producto){ ?>
+                        <li>
+                          <a class="aa-cartbox-img" href="#"><img src="<?php echo $producto['IMAGEN'];?>" alt="img"></a>
+                          <div class="aa-cartbox-info">
+                            <h4><a href="#"><?php echo $producto['titulo'];?></a></h4>
+                            <p><span>$</span><?php echo $producto['PRECIO'];?></p>
+                          </div>
+                          <form action="" method="post">
+                            <input type="hidden" name= "id" value ="<?php echo $producto['ID'];?>">
+                            <button class="aa-remove-product" type= "submit" name = "btnAction" value="eliminar"><span class="fa fa-times"></span></button>
+                          </form>
+                        </li>
+                      <?php }?>
+                    </ul>
+                         <a class="aa-cartbox-checkout aa-primary-btn" href="cart.php">Checkout</a>
+                    <?php }else{?>
+                      <ul><li></li>
+                      </ul>
+                      <a class="aa-cartbox-checkout aa-primary-btn" href="cart.php">Checkout</a>   
+                    <?php }?>
+                 </div>
               </div>
               <!-- / cart box -->
               <!-- search box -->
@@ -193,7 +202,7 @@
           <div class="aa-product-catg-content">
           
               <div class="aa-product-catg-head-left">
-                <form action="" class="aa-sort-form">
+                
             
                  <!-- <select name="">
                     <option value="1" selected="Default">Default</option>
@@ -220,9 +229,17 @@
                 <!-- start single product item -->
                 <li>
                   <figure>
-                  <img class = "item-imagen" src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
-                  <a class="aa-add-card-btn agregar-carrito" href="#"><span class=""></span>Add To Cart</a>
-                    <figcaption>
+                  <a class="aa-product-img" href="#"><img class = "item-imagen" src="<?php echo $data['imagen'];?>" alt="polo shirt img"></a>
+                            <form action="" method= "post">
+                                <input type="hidden" name="id" id="id" value = "<?php echo $data['id'];?>">
+                                <input type="hidden" name="titulo" id="titulo" value= "<?php echo $data['titulo'];?>">
+                                <input type="hidden" name="precio" id="precio"  value= "<?php echo $data['precio'];?>">
+                                <input type="hidden" name="imagen" id="imagen"  value= "<?php echo $data['imagen'];?>">
+                                <input type="hidden" name="cantidad" id="cantidad"  value= "<?php echo 1?>">
+                                <button class="aa-add-card-btn " name = "btnAction" type = "submit" value="Agregar"><span class=""></span>Add To Cart</button>
+                            <!-- <a class="aa-add-card-btn agregar-carrito" href="#" name = "btnAction" type = "submit"><span class=""></span>Add To Cart</a>-->
+                            </form>
+                            <figcaption>
                       <h4 class="aa-product-title item-title"><a href="#"> <?php echo $data['titulo'];?> </a></h4>
                       <span class="aa-product-price">$<span class="aa-product-price item-precio"><?php echo $data['precio'];?></span></span>
                     </figcaption>
@@ -479,9 +496,6 @@
     </div><!-- /.modal-dialog -->
   </div>
 
-
-    
-
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -502,12 +516,5 @@
   <script type="text/javascript" src="js/nouislider.js"></script>
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
-  <script src="js/carrito.js"></script>
-   <!-- Carrito js -->
-   <script src="js/carrito.js"></script>
-  <script src="js/pedido.js"></script>
-  <script src="js/compra.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.18.0/dist/sweetalert2.all.min.js"></script>
-
   </body>
 </html>

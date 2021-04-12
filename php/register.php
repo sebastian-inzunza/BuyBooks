@@ -6,7 +6,7 @@
     $contrasena = $_POST['contrasena']; 
     //para encriptar 
     $contrasena = hash('sha512',$contrasena);  
-    $query = "INSERT INTO usuario(correo, contrasena) VALUES ('$correo', '$contrasena')";
+    $query = "INSERT INTO usuario(correo, contrasena, tipo) VALUES ('$correo', '$contrasena', 'u')";
     
     $verificar = mysqli_query($conexion, "SELECT * FROM usuario WHERE correo= '$correo'");
     
