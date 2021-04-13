@@ -228,7 +228,7 @@
                     <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">                        
-                          <input type="text" placeholder="Titulo" class="form-control" name="title">
+                          <input type="text" placeholder="Titulo" class="form-control" name="title" required>
                         </div>
                       </div>
                     <button class="aa-secondary-btn" >Eliminar</button>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 require "php/carrito.php";
 
@@ -188,136 +189,60 @@ require "php/carrito.php";
       </div>       
     </div>
   </section>
-  <!-- / menu -->  
- 
-  <!-- catg header banner section -->
-  <section id="aa-catg-head-banner">
-   <img src="img/banner2.png" alt="fashion img">
-   <div class="aa-catg-head-banner-area">
-     <div class="container">
-      <div class="aa-catg-head-banner-content">
-        <h2>Cart Page</h2>
-        <ol class="breadcrumb">
-          <li><a href="index.php">Inicio</a></li>                   
-          <li class="active">Cart</li>
-        </ol>
-      </div>
-     </div>
-   </div>
-  </section>
-  <!-- / catg header banner section -->
-
- <!-- Cart view section -->
- <section id="cart-view">
+  
+  <section id="cart-view">
    <div class="container">
      <div class="row">
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
                <div class="table-responsive">
-                 <?php  if (!empty($_SESSION['CARRITO'])){ ?>
+               
                   <table class="table">
                     <thead>
                       <tr>
-                        <th></th>
-                        <th></th>
-                        <th>PRODUCTO</th>
-                        <th>PRECIO</th>
-                        <th>CANTIDAD</th>
+                      
+                        <th>ID</th>
+                        <th>CORREO</th>
+                        <th>LIBROS</th>
                         <th>TOTAL</th>
+                        <th>ESTATUS</th>
+                        <th>ENVIO</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <?php $total =  0;?>
-                      <?php foreach($_SESSION['CARRITO'] as $indice=>$producto){ ?>
+                      
                       <tr>
-                      <td>
-                          <form action="" method="post">
-                              <input type="hidden" name= "id" value ="<?php echo $producto['ID'];?>">
-                              <button class="remove" type= "submit" name = "btnAction" value="eliminar"><fa class="fa fa-close" ></fa></button>
-                          </form>
-                      </td>
-                        <td><img src="<?php echo $producto['IMAGEN'];?>" alt="img"></td>
-                        <td><span class="aa-cart-title"><?php echo $producto['titulo'];?></span></td>
-                        <td><span>$</span> <?php echo $producto['PRECIO'];?></td>
-                        <td><span class="aa-cart-quantity" type="number"><?php echo $producto['CANTIDAD'];?></span></td>
-                        <td><span>$</span><?php echo number_format($producto['PRECIO']*$producto['CANTIDAD'],2);?></td>
-                        
-                      </tr>
-                      <?php $total = $total + ($producto['PRECIO']*$producto['CANTIDAD']);?>
-                      <?php } ?>
+                      <?php
+                      require "php/conexion.php";
+                      $SELECT= "SELECT * FROM tbventas";
+                      $result= mysqli_query($conexion,$SELECT);
+                      while($row = mysqli_fetch_array($result))
+                      {
+                          if($row['correo'] == $_SESSION['correo']){
+                      ?>
+                        <td><span class="aa-cart-title"><?php echo $row['id'];?></span></td>
+                        <td><span><?php echo $row['correo'];?></span></td>
+                        <td><span class="aa-cart-quantity"><?php echo $row['libros'];?></span></td>
+                        <td><span>$</span><?php echo $row['total'];?></td>
+                        <td><span><?php echo $row['estatus'];?></span></td>
+                        <td><span><?php echo $row['envio'];?></span></td>
+                      </tr>   
+                      <?php
+                        }
+                      }
+                      ?>                  
                       </tbody>
                   </table>
                 </div>
              <!-- Cart Total view -->
-             <div class="cart-view-total">
-               <h4>Cart Totals</h4>
-               <table class="aa-totals-table">
-                 <tbody>
-                   <tr>
-                     <td colspan="3"><h3>Total</h3></td>
-                     <td>$<span><?php echo $total ?> </span></td>
-                   </tr>
-                        
-                   <form action="php/pagar.php" method="post">   
-                     <tr>
-                        <td  colspan = "3"> <h3 for="my-input">Usuario:</h3></td>
-                        <td><span><input type="text" name="nombreSesion" readonly="readonly"  value = "<?php echo $_SESSION['correo']?>"></span></td>
-                      </tr> 
-                          <style> 
-                            
-                                  input[type=number]::-webkit-inner-spin-button, 
-                                  input[type=number]::-webkit-outer-spin-button { 
-                                    -webkit-appearance: none; 
-                                    margin: 0; 
-                                  }
-                          </style>
-                          <tr>
-                            <td colspan = "3"><h3>Tarjeta:</h3></td>
-                            <td> <input type="number" value="" maxlength="16"  name = "numeroTar" placeholder="Numero de tarjeta*" required></td>
-                          </tr>
-                          <tr>
-                            <td colspan = "3"><h3>CSV:</h3></td>
-                            <td> <input type="csv" placeholder="CSV*" required></td>
-                          </tr>
-                          <tr>
-                            <td colspan = "3">Fecha Expiracion</td>
-                            <td> <input type="month" placeholder="Date of birth" name = "fechaEx"required></td>
-                          </tr>
-                          <tr>
-                            <td colspan = "3"><h3>Envio:</h3></td>
-                            <td>
-                              <select name="Envio">
-                                  <option value="100">Estafeta Agilizado (2-3 dias) $100</option>
-                                  <option value="0">FEDEX (4-10 dias) Gratis</option>
-                              </select>                   
-                             </td>
-                          </tr> 
-                     </td>
-                   </tr>
-                  </tbody>
-               </table>
-               <button class="aa-secondary-btn" name="btnAction" value ="pagar" type="submit" >Proceder a pagar</button>
-                          </form>
-             </div>
            </div>
          </div>
        </div>
      </div>
    </div> 
-   <?php }else{ ?>
-
-    echo'<script type="text/javascript">
-        alert("El carrito esta vavio");
-        window.location.href="index.php";
-        </script>';
-        <?php }?>
  </section>
- <!-- / Cart view section -->
 
-
-  
-  <!-- footer -->  
   <footer id="aa-footer">
     <!-- footer bottom -->
     <div class="aa-footer-top">
@@ -330,58 +255,23 @@ require "php/carrito.php";
                 <div class="aa-footer-widget">
                   <h3>Main Menu</h3>
                   <ul class="aa-footer-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Our Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Catalogo</a></li>
+                    <li><a href="#">Contactanos</a></li>
                   </ul>
                 </div>
               </div>
+              <div class="col-md-3 col-sm-6"></div>
+              <div class="col-md-3 col-sm-6"></div>
               <div class="col-md-3 col-sm-6">
                 <div class="aa-footer-widget">
                   <div class="aa-footer-widget">
-                    <h3>Knowledge Base</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Delivery</a></li>
-                      <li><a href="#">Returns</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Discount</a></li>
-                      <li><a href="#">Special Offer</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Useful Links</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Site Map</a></li>
-                      <li><a href="#">Search</a></li>
-                      <li><a href="#">Advanced Search</a></li>
-                      <li><a href="#">Suppliers</a></li>
-                      <li><a href="#">FAQ</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Contact Us</h3>
+                    <h3>Contactanos</h3>
                     <address>
-                      <p> 25 Astor Pl, NY 10003, USA</p>
-                      <p><span class="fa fa-phone"></span>+1 212-982-4589</p>
-                      <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
+                      <p>Guadalajara Jalisco</p>
+                      <p><span class="fa fa-phone"></span>33-62-658-658</p>
+                      <p><span class="fa fa-envelope"></span>BuyBooks@correo.com</p>
                     </address>
-                    <div class="aa-footer-social">
-                      <a href="#"><span class="fa fa-facebook"></span></a>
-                      <a href="#"><span class="fa fa-twitter"></span></a>
-                      <a href="#"><span class="fa fa-google-plus"></span></a>
-                      <a href="#"><span class="fa fa-youtube"></span></a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -390,26 +280,10 @@ require "php/carrito.php";
       </div>
      </div>
     </div>
-    <!-- footer-bottom -->
-    <div class="aa-footer-bottom">
-      <div class="container">
-        <div class="row">
-        <div class="col-md-12">
-          <div class="aa-footer-bottom-area">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
-            <div class="aa-footer-payment">
-              <span class="fa fa-cc-mastercard"></span>
-              <span class="fa fa-cc-visa"></span>
-              <span class="fa fa-paypal"></span>
-              <span class="fa fa-cc-discover"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </footer>
+
+</footer>
   <!-- / footer -->
+
   <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -417,45 +291,46 @@ require "php/carrito.php";
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4>Login or Register</h4>
-          <form class="aa-login-form" action="">
+          <!-- Aqui trabajo yo -->
+          <form class="aa-login-form" action="php/login.php" method = "post">
             <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email">
+            <input type="text" placeholder="Username or email" name = "correo" required>
             <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Password" name = "contrasena" required>
             <button class="aa-browse-btn" type="submit">Login</button>
             <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
             <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
             <div class="aa-register-now">
-              Don't have an account?<a href="account.html">Register now!</a>
+              Don't have an account?<a href="account.php">Register now!</a>
             </div>
           </form>
         </div>                        
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-  </div>
+  </div>    
 
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.js"></script>  
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src="js/jquery.smartmenus.js"></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.js"></script>  
+  <!-- To Slider JS -->
+  <script src="js/sequence.js"></script>
+  <script src="js/sequence-theme.modern-slide-in.js"></script>  
+  <!-- Product view slider -->
+  <script type="text/javascript" src="js/jquery.simpleGallery.js"></script>
+  <script type="text/javascript" src="js/jquery.simpleLens.js"></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src="js/slick.js"></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src="js/nouislider.js"></script>
+  <!-- Custom js -->
+  <script src="js/custom.js"></script>
+  <!-- Carrito -->
 
-    
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.js"></script>  
-    <!-- SmartMenus jQuery plugin -->
-    <script type="text/javascript" src="js/jquery.smartmenus.js"></script>
-    <!-- SmartMenus jQuery Bootstrap Addon -->
-    <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.js"></script>  
-    <!-- To Slider JS -->
-    <script src="js/sequence.js"></script>
-    <script src="js/sequence-theme.modern-slide-in.js"></script>  
-    <!-- Product view slider -->
-    <script type="text/javascript" src="js/jquery.simpleGallery.js"></script>
-    <script type="text/javascript" src="js/jquery.simpleLens.js"></script>
-    <!-- slick slider -->
-    <script type="text/javascript" src="js/slick.js"></script>
-    <!-- Price picker slider -->
-    <script type="text/javascript" src="js/nouislider.js"></script>
-    <!-- Custom js -->
-    <script src="js/custom.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.18.0/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.18.0/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>

@@ -150,10 +150,10 @@ session_start();
                     }
                 break;
 
-                case 'pagar':
+                /*case 'pagar':
                     foreach($_SESSION['CARRITO']  as $indice=>$producto){              
                             unset($_SESSION['CARRITO'][$indice]); 
-                        }
+                        }*/
 
         }
 

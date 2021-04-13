@@ -161,43 +161,76 @@
 
  <!-- Cart view section -->
  <section id="cart-view">
-  <form id="procesar-pago" action="#" method="post">
-  <div id="carrito" class="form-group table-responsive" >
-      <table class="table" id="lista-compra" >
-          <thead>
-              <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Usuario</th>
-                  <th scope="col">Productos</th>
-                  <th scope="col">Total</th>
-                  <th scope="col">Status</th>
-              </tr>
-
-          </thead>
-          <tbody >
-          </tbody>
-
-      </table>
-  </div>
-
-    <div class="row justify-content-center" id="loaders">
-        <!--<img id="cargando" src="img/cargando.gif" width="220">-->
-    </div>
-
-  <div class="row justify-content-between">
-      <div class="col-md-4 mb-2">
-          <a href="index.php" class="btn btn-info btn-block">Seguir comprando</a>
-      </div>
-      <div class="col-xs-12 col-md-4">
-          <button href="#" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</button>
-      </div>
-        <select>
-           <option value="0">Preparando Paquete</option>
-           <option value="1">Paquete en camino  </option>     
-        </select>
-  </div>
-</form>
-
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+         <div class="cart-view-area">
+           <div class="cart-view-table">
+               <div class="table-responsive">
+               
+                  <table class="table">
+                    <thead>
+                      <tr>
+                      
+                        <th>ID</th>
+                        <th>CORREO</th>
+                        <th>LIBROS</th>
+                        <th>TOTAL</th>
+                        <th>ESTATUS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                      <?php
+                      require "php/conexion.php";
+                      $SELECT= "SELECT * FROM tbventas";
+                      $result= mysqli_query($conexion,$SELECT);
+                      while($row = mysqli_fetch_array($result))
+                      {
+                      ?>
+                        <td><span class="aa-cart-title"><?php echo $row['id'];?></span></td>
+                        <td><span><?php echo $row['correo'];?></span></td>
+                        <td><span class="aa-cart-quantity"><?php echo $row['libros'];?></span></td>
+                        <td><span>$</span><?php echo $row['total'];?></td>
+                        <td><span><?php echo $row['estatus'];?></span></td>
+                      </tr>   
+                      <?php
+                      }
+                      ?>                  
+                      </tbody>
+                  </table>
+                </div>
+             <!-- Cart Total view -->
+             <div class="cart-view-total">
+               <h4>Cambiar Estatus</h4>
+               <table class="aa-totals-table">
+                 <tbody>
+                   <tr>
+                     <td colspan="3"><h3>ID-Pedido</h3></td>
+                     <td><span> Estatus</span></td>
+                   </tr>
+                   <form action="php/estatus.php" method = "post">
+                    <td colspan="3"><input type="text" name="id-pedido" placeholder="ID..." ></td>
+                    <td><select name="estatus">
+                          <option value="PREPARANDO PAQUETE">PREPARANDO PAQUETE</option>
+                          <option value="PAQUETE EN CAMINO">PAQUETE EN CAMINO</option>
+                          <option value="LLEGO PAQUETE">LLEGO PAQUETE</option>
+                        </select>
+                     </td>
+                   <tr>
+                   </tr>
+                   <button class="aa-secondary-btn" type="submit">Cambiar</button>
+              </form>
+                  </tbody>
+               </table>
+             
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div> 
  </section>
  <!-- / Cart view section -->
 
