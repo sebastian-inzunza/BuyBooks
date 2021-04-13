@@ -13,17 +13,26 @@
     
     $verificar = mysqli_query($conexion, "SELECT * FROM provedor WHERE nombreEmpresa= '$empresa'");
     
+    if (mysqli_num_rows($verificar) > 0){
+        echo'
+         <script>
+            alert("Ese Proveedor ya esta registrado, intente con otro");
+            window.location = "../provedores.php";
+        </script>';
+        exit;
+    }
+    
     $ejecutar = mysqli_query($conexion, $query);
 
     if ($ejecutar)
     {
         echo'<script>
-             window.location = "../agregarProve.php";
+             window.location = "../provedores.php";
             </script>';
     }else{
         echo'<script>
         alert("Hubo en la captura de datos");
-        window.location = "../agregarProve.php";
+        window.location = "../provedores.php";
         </script>';
     }
         

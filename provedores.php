@@ -191,12 +191,11 @@
                       {
                       ?>
                         <td><span class="aa-cart-title"><?php echo $row['id'];?></span></td>
-                        <td><span><?php echo $row['correo'];?></span></td>
                         <td><span class="aa-cart-quantity"><?php echo $row['nombreEmpresa'];?></span></td>
-                        <td><span>$</span><?php echo $row['telefono'];?></td>
-                        <td><span>$</span><?php echo $row['correo'];?></td>
+                        <td><?php echo $row['telefono'];?></td>
+                        <td><?php echo $row['correo'];?></td>
                         <td><span><?php echo $row['direccion'];?></span></td>
-                        <td><span>$</span><?php echo $row['paginaweb'];?></td>
+                        <td><?php echo $row['paginaweb'];?></td>
                       </tr>   
                       <?php
                       }
@@ -204,11 +203,6 @@
                       </tbody>
                   </table>
                 </div>
-             <!-- Cart Total view -->
-             <div class="cart-view-total">
-              <a class="aa-secondary-btn" href="" type="submit">Agregar provedor</a>
-             </div>
-           </div>
          </div>
        </div>
      </div>
@@ -216,6 +210,64 @@
  </section>
  <!-- / Cart view section -->
 
+ <section id="cart-view">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+         <div class="cart-view-area">
+           <div class="cart-view-table">
+            
+             <!-- Cart Total view -->
+             <div class="cart-view-total">
+               <h4>Provedores</h4>
+               <table class="aa-totals-table">
+                 <tbody>
+
+                 <style> 
+                            
+                            input[type=number]::-webkit-inner-spin-button, 
+                            input[type=number]::-webkit-outer-spin-button { 
+                              -webkit-appearance: none; 
+                              margin: 0; 
+                            }
+                    </style>
+                 
+                   <form action="php/addprov.php" method="post">   
+                     <tr>
+                        <td  colspan = "3"> <h3 for="my-input">Empresa:</h3></td>
+                        <td><span><input type="text" name="empresa" placeholder="Nombre:" required></span></td>
+                      </tr> 
+                        
+                          <tr>
+                            <td colspan = "3"><h3>Telefono:</h3></td>
+                            <td> <input type="tel" value=""   name = "telefono" placeholder="Telefono:" required></td>
+                          </tr>
+                          <tr>
+                            <td colspan = "3"><h3>Correo:</h3></td>
+                            <td> <input type="email" placeholder="email:*" name="email" required></td>
+                          </tr>
+                          <tr>
+                            <td colspan = "3">Direccion:</td>
+                            <td> <input type="text" placeholder="Direccion:" name = "direccion"required></td>
+                          </tr>
+
+                          <tr>
+                            <td colspan = "3">Sitio web:</td>
+                            <td> <input type="text" placeholder="Sitio web" name = "sitio"required></td>
+                          </tr>
+                     </td>
+                   </tr>
+                  </tbody>
+               </table>
+               <button class="aa-secondary-btn"  type="submit" >Provedores</button>
+            </form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div> 
+ </section>
 
   
   <!-- footer -->  
