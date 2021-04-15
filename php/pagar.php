@@ -37,12 +37,11 @@
                     unset($_SESSION['CARRITO'][$indice]);
                 } 
                 echo'<script>
-                    alert("JALO")
                     window.location = "../index.php";
                     </script>';
             }else{
                 echo'<script>
-                alert("nO")
+                alert("Hubo un problema con la transaccion")
                 </script>';
             }
           

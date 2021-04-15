@@ -31,7 +31,7 @@
             </script>';
     }else{
         echo'<script>
-        alert("Hubo en la captura de datos");
+        alert("Hubo un problema en la captura de datos");
         window.location = "../provedores.php";
         </script>';
     }

@@ -19,7 +19,7 @@ require "php/carrito.php";
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>BuyBooks | Inicio </title>
+    <title>BuyBooks | Compras </title>
     
     <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -85,8 +85,7 @@ require "php/carrito.php";
                   <!-- < li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>-->
                   <!-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li>-->
                    <li class="hidden-xs"><a href="tuspedidos.php">Mis Compras</a></li>
-                   <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>  
-                   <li class="hidden-xs"><a href="php/logout.php">Logout</a></li>
+                   <li class="hidden-xs"><a href="php/logout.php">Cerrar Sesión</a></li>
                  </ul>
                </div>
              </div>
@@ -117,7 +116,7 @@ require "php/carrito.php";
               <div class="aa-cartbox">
                 <a class="aa-cart-link" href="#">
                   <span class="fa fa-shopping-basket"></span>
-                  <span class="aa-cart-title">SHOPPING CART</span>
+                  <span class="aa-cart-title">CARRITO</span>
                   <span class="aa-cart-notify"><?php echo (empty($_SESSION['CARRITO'])) ?0: count($_SESSION['CARRITO']) ?></span>
                 </a>
                 <div class="aa-cartbox-summary">
@@ -179,10 +178,7 @@ require "php/carrito.php";
             <ul class="nav navbar-nav">
               <li><a href="index.php">Inicio</a></li>
               <li><a href="product.php">Catalogo</a></li>
-              <!--  <li><a href="product-detail.html">Shop Single</a></li>-->
-               <li><a href="contact.html">Contacto</a></li>
-               <!--<li><a href="404.html">404 Page</a></li>-->
-
+              <li><a href="contact.php">Contacto</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

@@ -3,11 +3,11 @@ require "php/carrito.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Daily Shop | Product Detail</title>
+    <title>BuyBooks | Libro </title>
     
     <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -23,6 +23,7 @@ require "php/carrito.php";
     <link rel="stylesheet" type="text/css" href="css/nouislider.css">
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/dark-red-theme.css" rel="stylesheet">
+    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
     <!-- Top Slider CSS -->
     <link href="css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
@@ -65,30 +66,22 @@ require "php/carrito.php";
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="aa-header-top-area">
-              <!-- start header top left -->
-              <div class="aa-header-top-left">
-                <!-- start language -->
-               
-                </div>
-                <!-- / language -->
-
-         
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  <li><a href="account.html">My Account</a></li>
-                  <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
-                  <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                  <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
-                  <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                  <li><a href="cart.php">Mi Carrito</a></li>
+                  <!-- < li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>-->
+                  <!-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li>-->
+                   <li class="hidden-xs"><a href="tuspedidos.php">Mis compras</a></li>
+                   <li><a href="" data-toggle="modal" data-target="#login-modal">Iniciar Sesión</a></li>  
+                   <li class="hidden-xs"><a href="php/logout.php">Cerrar Sesión</a></li>
+                 </ul>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
     <!-- / header top  -->
 
     <!-- start header bottom  -->
@@ -110,7 +103,7 @@ require "php/carrito.php";
              <div class="aa-cartbox">
                 <a class="aa-cart-link" href="#">
                   <span class="fa fa-shopping-basket"></span>
-                  <span class="aa-cart-title">SHOPPING CART</span>
+                  <span class="aa-cart-title">CARRITO</span>
                   <span class="aa-cart-notify"><?php echo (empty($_SESSION['CARRITO'])) ?0: count($_SESSION['CARRITO']) ?></span>
                 </a>
                 <div class="aa-cartbox-summary">
@@ -174,7 +167,7 @@ require "php/carrito.php";
             <ul class="nav navbar-nav">
               <li><a href="index.php">Inicio</a></li>
               <li><a href="product.php">Catalogo </span></a></li>
-              <li><a href="contact.html">Contacto</a></li>    
+              <li><a href="contact.php">Contacto</a></li>    
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -559,23 +552,22 @@ require "php/carrito.php";
       <div class="modal-content">                      
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
-          <form class="aa-login-form" action="">
-            <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email">
-            <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password">
-            <button class="aa-browse-btn" type="submit">Login</button>
-            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+          <h4>Iniciar Sesión y Registrarse</h4>
+          <!-- Aqui trabajo yo -->
+          <form class="aa-login-form" action="php/login.php" method = "post">
+            <label for="">Nombre de Usuario<span>*</span></label>
+            <input type="text" placeholder="Usuario" name = "correo" required>
+            <label for="">Contraseña<span>*</span></label>
+            <input type="password" placeholder="Contraseña" name = "contrasena" required>
+            <button class="aa-browse-btn" type="submit">Inicar Sesión</button>
             <div class="aa-register-now">
-              Don't have an account?<a href="account.html">Register now!</a>
+              ¿No tienes cuenta?<a href="account.php">Registrase Ahora!</a>
             </div>
           </form>
         </div>                        
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-  </div>
+  </div> 
 
 
 

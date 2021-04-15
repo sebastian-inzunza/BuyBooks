@@ -58,6 +58,7 @@ require "php/carrito.php";
     <!-- SCROLL TOP BUTTON -->
       <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
     <!-- END SCROLL TOP BUTTON -->
+  
 
   <!-- Start header section -->
   <header id="aa-header">
@@ -73,8 +74,8 @@ require "php/carrito.php";
                   <!-- < li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>-->
                   <!-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li>-->
                    <li class="hidden-xs"><a href="tuspedidos.php">Mis compras</a></li>
-                   <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>  
-                   <li class="hidden-xs"><a href="php/logout.php">Logout</a></li>
+                   <li><a href="" data-toggle="modal" data-target="#login-modal">Iniciar Sesión</a></li>  
+                   <li class="hidden-xs"><a href="php/logout.php">Cerrar Sesión</a></li>
                  </ul>
                </div>
              </div>
@@ -149,6 +150,7 @@ require "php/carrito.php";
     </div>
     <!-- / header bottom  -->
   </header>
+  <!-- / header section -->
   <!-- menu -->
   <section id="menu">
     <div class="container">
@@ -180,63 +182,89 @@ require "php/carrito.php";
  
   <!-- catg header banner section -->
   <section id="aa-catg-head-banner">
-    <img src="img/banner2.png" alt="fashion img">
-    <div class="aa-catg-head-banner-area">
+   <img src="img/banner2.png" alt="fashion img">
+   <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Crear Cuenta</h2>
+        <h2>Contacto</h2>
         <ol class="breadcrumb">
-          <li><a href="index.php">Incio</a></li>                   
-          <li class="active">Cuenta</li>
+          <li><a href="index.html">Inicio</a></li>         
+          <li class="active">Contacto</li>
         </ol>
       </div>
      </div>
    </div>
   </section>
   <!-- / catg header banner section -->
-
- <!-- Cart view section -->
- <section id="aa-myaccount">
+<!-- start contact section -->
+ <section id="aa-contact">
    <div class="container">
      <div class="row">
        <div class="col-md-12">
-        <div class="aa-myaccount-area">         
-            <div class="row">
-              <div class="col-md-6">
-                <div class="aa-myaccount-login">
-                <h4>Iniciar Sesion </h4>
-                 <form action="php/login.php" class="aa-login-form" method = "post">
-                  <label for="">Nombre de Usuario<span>*</span></label>
-                   <input type="text" placeholder="Usuario" name = "correo" required>
-                   <label for="">Contraseña<span>*</span></label>
-                    <input type="password" placeholder="Contraseña" name= contrasena required >
-                    <button type="submit" class="aa-browse-btn">Iniciar Sesión</button>
+         <div class="aa-contact-area">
+           <div class="aa-contact-top">
+             <h2>¿En que te podemos ayudar?</h2>
+           </div>
+           <!-- contact map -->
+           <div class="aa-contact-map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.30765958707!2d-103.32714258559875!3d20.65705860574044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b23a9bbba80d%3A0xdacdb7fd592feb90!2sCentro%20Universitario%20de%20Ciencias%20Exactas%20e%20Ingenier%C3%ADas!5e0!3m2!1ses-419!2smx!4v1618421839888!5m2!1ses-419!2smx" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+           </div>
+           <!-- Contact address -->
+           <div class="aa-contact-address">
+             <div class="row">
+               <div class="col-md-8">
+                 <div class="aa-contact-address-left">
+                   <form class="comments-form contact-form" action="">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">                        
+                          <input type="text" placeholder="Tu nombre" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">                        
+                          <input type="email" placeholder="Email" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                     <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">                        
+                          <input type="text" placeholder="Asunto" class="form-control">
+                        </div>
+                      </div>
+                     
+                    </div>                  
+                     
+                    <div class="form-group">                        
+                      <textarea class="form-control" rows="3" placeholder="Mensaje"></textarea>
+                    </div>
+                    <button class="aa-secondary-btn">Enviar</button>
                   </form>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="aa-myaccount-register">                 
-                 <h4>Registrar</h4>
-                 <!--Aqui voy -->
-                 <form  action="php/register.php" class="aa-login-form" method = "post">
-                    <label for="">Nombre de Usuario<span>*</span></label>
-                    <input type="text" placeholder="Usuario" name= "correo" required>
-                    <label for="">Contraseña<span>*</span></label>
-                    <input type="password" placeholder="Contraseña" name ="contrasena" required>
-                    <button type="submit" class="aa-browse-btn">Registrar</button>                    
-                  </form>
-                </div>
-              </div>
-            </div>          
+                 </div>
+               </div>
+               <div class="col-md-4">
+                 <div class="aa-contact-address-right">
+                   <address>
+                     <h4>BuyBooks</h4>
+                     <p>Tus Libros favoritos.</p>
+                     <p><span class="fa fa-home"></span>Guadalajara Jalisco, Mexico</p>
+                     <p><span class="fa fa-phone"></span>33-62-658-658</p>
+                     <p><span class="fa fa-envelope"></span>Email: BuyBooks@correo.com</p>
+                   </address>
+                 </div>
+               </div>
+             </div>
+           </div>
          </div>
        </div>
      </div>
    </div>
  </section>
- <!-- / Cart view section -->
 
-   <!-- footer -->  
-   <footer id="aa-footer">
+
+  <!-- footer -->  
+  <footer id="aa-footer">
     <!-- footer bottom -->
     <div class="aa-footer-top">
      <div class="container">
@@ -281,7 +309,7 @@ require "php/carrito.php";
       <div class="modal-content">                      
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
+          <h4>Iniciar Sesión o Registrarse</h4>
           <!-- Aqui trabajo yo -->
           <form class="aa-login-form" action="php/login.php" method = "post">
             <label for="">Nombre de Usuario<span>*</span></label>
@@ -297,7 +325,7 @@ require "php/carrito.php";
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div> 
-    
+
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

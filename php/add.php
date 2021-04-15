@@ -21,7 +21,7 @@
     if (mysqli_num_rows($verificar) > 0){
         echo'
          <script>
-            alert("Ese libro ya esta registrado, intnte con otro");
+            alert("Ese libro ya esta registrado, intente con otro");
             window.location = "../index_Admin.php";
         </script>';
         exit;

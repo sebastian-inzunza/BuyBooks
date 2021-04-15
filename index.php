@@ -73,8 +73,8 @@ require "php/carrito.php";
                   <!-- < li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>-->
                   <!-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li>-->
                    <li class="hidden-xs"><a href="tuspedidos.php">Mis compras</a></li>
-                   <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>  
-                   <li class="hidden-xs"><a href="php/logout.php">Logout</a></li>
+                   <li><a href="" data-toggle="modal" data-target="#login-modal">Iniciar Sesión</a></li>  
+                   <li class="hidden-xs"><a href="php/logout.php">Cerrar Sesión</a></li>
                  </ul>
                </div>
              </div>
@@ -169,7 +169,7 @@ require "php/carrito.php";
               <div class="aa-cartbox">
                 <a class="aa-cart-link" href="#">
                   <span class="fa fa-shopping-basket"></span>
-                  <span class="aa-cart-title">SHOPPING CART</span>
+                  <span class="aa-cart-title">CARRITO</span>
                   <span class="aa-cart-notify"><?php echo (empty($_SESSION['CARRITO'])) ?0: count($_SESSION['CARRITO']) ?></span>
                 </a>
                 <div class="aa-cartbox-summary">
@@ -232,7 +232,7 @@ require "php/carrito.php";
               <li><a href="index.php">Inicio</a></li>
               <li><a href="product.php">Catalogo</a></li>
               <!--  <li><a href="product-detail.html">Shop Single</a></li>-->
-               <li><a href="contact.html">Contacto</a></li>
+               <li><a href="contact.php">Contacto</a></li>
                <!--<li><a href="404.html">404 Page</a></li>-->
 
             </ul>
@@ -561,18 +561,16 @@ require "php/carrito.php";
       <div class="modal-content">                      
         <div class="modal-body">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
+          <h4>Iniciar Sesión o Registrarse</h4>
           <!-- Aqui trabajo yo -->
           <form class="aa-login-form" action="php/login.php" method = "post">
-            <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email" name = "correo" required>
-            <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password" name = "contrasena" required>
-            <button class="aa-browse-btn" type="submit">Login</button>
-            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
+            <label for="">Nombre de Usuario<span>*</span></label>
+            <input type="text" placeholder="Usuario" name = "correo" required>
+            <label for="">Contraseña<span>*</span></label>
+            <input type="password" placeholder="Contraseña" name = "contrasena" required>
+            <button class="aa-browse-btn" type="submit">Inicar Sesión</button>
             <div class="aa-register-now">
-              Don't have an account?<a href="account.php">Register now!</a>
+              ¿No tienes cuenta?<a href="account.php">Registrase Ahora!</a>
             </div>
           </form>
         </div>                        

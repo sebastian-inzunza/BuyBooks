@@ -1,10 +1,25 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['correo'])){
+        echo '
+        <script>
+            alert("Por favor debes iniciar session");
+           
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>BuyBooks | Inicio </title>
+    <title>BuyBooks | Admin</title>
     
     <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -20,7 +35,6 @@
     <link rel="stylesheet" type="text/css" href="css/nouislider.css">
     <!-- Theme color -->
     <link id="switcher" href="css/theme-color/dark-red-theme.css" rel="stylesheet">
-    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
     <!-- Top Slider CSS -->
     <link href="css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
 
@@ -30,6 +44,7 @@
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,18 +54,20 @@
     <![endif]-->
 
   </head>
-  <body>
-   
-   <!-- wpf loader Two -->
-    <div id="wpf-loader-two">          
-      <div class="wpf-loader-two-inner">
-        <span>Loading</span>
-      </div>
-    </div> 
+  <body> 
+    <!-- wpf loader Two -->
+      <div id="wpf-loader-two">          
+        <div class="wpf-loader-two-inner">
+          <span class="fa fa-leanpub"></span>
+          <p></p>
+          <span>Cargando</span>
+        </div>
+      </div> 
     <!-- / wpf loader Two -->       
- <!-- SCROLL TOP BUTTON -->
+    <!-- SCROLL TOP BUTTON -->
     <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
-  <!-- END SCROLL TOP BUTTON -->
+    <!-- END SCROLL TOP BUTTON -->
+
 
 
   <!-- Start header section -->
@@ -64,45 +81,22 @@
               <!-- start header top left -->
               <div class="aa-header-top-left">
                 <!-- start language -->
-                <div class="aa-language">
-                  <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <img src="img/flag/english.jpg" alt="english flag">ENGLISH
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="#"><img src="img/flag/french.jpg" alt="">FRENCH</a></li>
-                      <li><a href="#"><img src="img/flag/english.jpg" alt="">ENGLISH</a></li>
-                    </ul>
-                  </div>
-                </div>
+                
                 <!-- / language -->
 
                 <!-- start currency -->
-                <div class="aa-currency">
-                  <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <i class="fa fa-usd"></i>USD
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="#"><i class="fa fa-euro"></i>EURO</a></li>
-                      <li><a href="#"><i class="fa fa-jpy"></i>YEN</a></li>
-                    </ul>
-                  </div>
-                </div>
+              
                 <!-- / currency -->
                 <!-- start cellphone -->
                 <div class="cellphone hidden-xs">
-                  <p><span class="fa fa-phone"></span>00-62-658-658</p>
+                  <p><span class="fa fa-user-circle"></span>Sesion iniciada <?php echo $_SESSION['correo']; ?> </p>
                 </div>
                 <!-- / cellphone -->
               </div>
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                <li><a href="segumiento_Admin.php"  class="hidden-xs">Seguimineto</a></li>
-                <li><a href="php/logout.php"  class="hidden-xs">Logout</a></li>
+                <li><a href="php/logout.php"  class="hidden-xs">Cerrar Sesión</a></li>
                 </ul>
               </div>
             </div>
@@ -121,15 +115,16 @@
               <!-- logo  -->
               <div class="aa-logo">
                 <!-- Text based logo -->
-                <a href="index.php">
+                <a href="index_Admin.php">
                   <span class="fa fa-leanpub"></span>
                   <p>Buy<strong>Books</strong> <span>Tus Libros Favoritos</span></p>
                 </a>
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->
               </div>
-              <!-- / logo  -->
-                  
+             
+           
+              <!-- / search box -->             
             </div>
           </div>
         </div>
@@ -139,7 +134,31 @@
   </header>
   <!-- / header section -->
   <!-- menu -->
-
+  <section id="menu">
+    <div class="container">
+      <div class="menu-area">
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>          
+          </div>
+          <div class="navbar-collapse collapse">
+            <!-- Left nav -->
+            <ul class="nav navbar-nav">
+              <li><a href="index_Admin.php">Inicio</a></li>
+              <li><a href="segumiento_Admin.php">Seguimientos</a></li>
+              <li><a href="Provedores.php">Proveedores</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>       
+    </div>
+  </section>
   <!-- / menu -->  
  
   <!-- catg header banner section -->
@@ -148,10 +167,10 @@
    <div class="aa-catg-head-banner-area">
      <div class="container">
       <div class="aa-catg-head-banner-content">
-        <h2>Cart Page</h2>
+        <h2>Proveedores</h2>
         <ol class="breadcrumb">
           <li><a href="index_Admin.php">Inicio</a></li>                   
-          <li class="active">Seguimineto</li>
+          <li class="active">Proveedores</li>
         </ol>
       </div>
      </div>
@@ -283,58 +302,23 @@
                 <div class="aa-footer-widget">
                   <h3>Main Menu</h3>
                   <ul class="aa-footer-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Our Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Catalogo</a></li>
+                    <li><a href="#">Contactanos</a></li>
                   </ul>
                 </div>
               </div>
+              <div class="col-md-3 col-sm-6"></div>
+              <div class="col-md-3 col-sm-6"></div>
               <div class="col-md-3 col-sm-6">
                 <div class="aa-footer-widget">
                   <div class="aa-footer-widget">
-                    <h3>Knowledge Base</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Delivery</a></li>
-                      <li><a href="#">Returns</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Discount</a></li>
-                      <li><a href="#">Special Offer</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Useful Links</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Site Map</a></li>
-                      <li><a href="#">Search</a></li>
-                      <li><a href="#">Advanced Search</a></li>
-                      <li><a href="#">Suppliers</a></li>
-                      <li><a href="#">FAQ</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Contact Us</h3>
+                    <h3>Contactanos</h3>
                     <address>
-                      <p> 25 Astor Pl, NY 10003, USA</p>
-                      <p><span class="fa fa-phone"></span>+1 212-982-4589</p>
-                      <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
+                      <p>Guadalajara Jalisco</p>
+                      <p><span class="fa fa-phone"></span>33-62-658-658</p>
+                      <p><span class="fa fa-envelope"></span>BuyBooks@correo.com</p>
                     </address>
-                    <div class="aa-footer-social">
-                      <a href="#"><span class="fa fa-facebook"></span></a>
-                      <a href="#"><span class="fa fa-twitter"></span></a>
-                      <a href="#"><span class="fa fa-google-plus"></span></a>
-                      <a href="#"><span class="fa fa-youtube"></span></a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -343,26 +327,8 @@
       </div>
      </div>
     </div>
-    <!-- footer-bottom -->
-    <div class="aa-footer-bottom">
-      <div class="container">
-        <div class="row">
-        <div class="col-md-12">
-          <div class="aa-footer-bottom-area">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
-            <div class="aa-footer-payment">
-              <span class="fa fa-cc-mastercard"></span>
-              <span class="fa fa-cc-visa"></span>
-              <span class="fa fa-paypal"></span>
-              <span class="fa fa-cc-discover"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </footer>
-  <!-- / footer -->
+
+    </footer>
   <!-- Login Modal -->  
   <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

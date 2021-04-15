@@ -13,12 +13,21 @@ require "php/carrito.php";
     }
 
 ?>
+<style> 
+                            
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+</style>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>BuyBooks | Inicio </title>
+    <title>BuyBooks | Carrito </title>
     
     <!-- Font awesome -->
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -83,9 +92,8 @@ require "php/carrito.php";
                   <li><a href="cart.php">Mi Carrito</a></li>
                   <!-- < li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>-->
                   <!-- <li class="hidden-xs"><a href="cart.html">My Cart</a></li>-->
-                   <li class="hidden-xs"><a href="tuspedidos.php">Mis Compras</a></li>
-                   <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>  
-                   <li class="hidden-xs"><a href="php/logout.php">Logout</a></li>
+                   <li class="hidden-xs"><a href="tuspedidos.php">Mis Compras</a></li> 
+                   <li class="hidden-xs"><a href="php/logout.php">Cerrar Sesión</a></li>
                  </ul>
                </div>
              </div>
@@ -116,7 +124,7 @@ require "php/carrito.php";
               <div class="aa-cartbox">
                 <a class="aa-cart-link" href="#">
                   <span class="fa fa-shopping-basket"></span>
-                  <span class="aa-cart-title">SHOPPING CART</span>
+                  <span class="aa-cart-title">CARRITO</span>
                   <span class="aa-cart-notify"><?php echo (empty($_SESSION['CARRITO'])) ?0: count($_SESSION['CARRITO']) ?></span>
                 </a>
                 <div class="aa-cartbox-summary">
@@ -179,7 +187,7 @@ require "php/carrito.php";
               <li><a href="index.php">Inicio</a></li>
               <li><a href="product.php">Catalogo</a></li>
               <!--  <li><a href="product-detail.html">Shop Single</a></li>-->
-               <li><a href="contact.html">Contacto</a></li>
+               <li><a href="contact.php">Contacto</a></li>
                <!--<li><a href="404.html">404 Page</a></li>-->
 
             </ul>
@@ -264,14 +272,6 @@ require "php/carrito.php";
                         <td  colspan = "3"> <h3 for="my-input">Usuario:</h3></td>
                         <td><span><input type="text" name="nombreSesion" readonly="readonly"  value = "<?php echo $_SESSION['correo']?>"></span></td>
                       </tr> 
-                          <style> 
-                            
-                                  input[type=number]::-webkit-inner-spin-button, 
-                                  input[type=number]::-webkit-outer-spin-button { 
-                                    -webkit-appearance: none; 
-                                    margin: 0; 
-                                  }
-                          </style>
                           <tr>
                             <td colspan = "3"><h3>Tarjeta:</h3></td>
                             <td> <input type="number" value="" maxlength="16"  name = "numeroTar" placeholder="Numero de tarjeta*" required></td>
@@ -308,7 +308,7 @@ require "php/carrito.php";
    <?php }else{ ?>
 
     echo'<script type="text/javascript">
-        alert("El carrito esta vavio");
+        alert("El carrito esta vacio");
         window.location.href="index.php";
         </script>';
         <?php }?>
@@ -330,58 +330,23 @@ require "php/carrito.php";
                 <div class="aa-footer-widget">
                   <h3>Main Menu</h3>
                   <ul class="aa-footer-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Our Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Catalogo</a></li>
+                    <li><a href="#">Contactanos</a></li>
                   </ul>
                 </div>
               </div>
+              <div class="col-md-3 col-sm-6"></div>
+              <div class="col-md-3 col-sm-6"></div>
               <div class="col-md-3 col-sm-6">
                 <div class="aa-footer-widget">
                   <div class="aa-footer-widget">
-                    <h3>Knowledge Base</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Delivery</a></li>
-                      <li><a href="#">Returns</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">Discount</a></li>
-                      <li><a href="#">Special Offer</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Useful Links</h3>
-                    <ul class="aa-footer-nav">
-                      <li><a href="#">Site Map</a></li>
-                      <li><a href="#">Search</a></li>
-                      <li><a href="#">Advanced Search</a></li>
-                      <li><a href="#">Suppliers</a></li>
-                      <li><a href="#">FAQ</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="aa-footer-widget">
-                  <div class="aa-footer-widget">
-                    <h3>Contact Us</h3>
+                    <h3>Contactanos</h3>
                     <address>
-                      <p> 25 Astor Pl, NY 10003, USA</p>
-                      <p><span class="fa fa-phone"></span>+1 212-982-4589</p>
-                      <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
+                      <p>Guadalajara Jalisco</p>
+                      <p><span class="fa fa-phone"></span>33-62-658-658</p>
+                      <p><span class="fa fa-envelope"></span>BuyBooks@correo.com</p>
                     </address>
-                    <div class="aa-footer-social">
-                      <a href="#"><span class="fa fa-facebook"></span></a>
-                      <a href="#"><span class="fa fa-twitter"></span></a>
-                      <a href="#"><span class="fa fa-google-plus"></span></a>
-                      <a href="#"><span class="fa fa-youtube"></span></a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -390,49 +355,10 @@ require "php/carrito.php";
       </div>
      </div>
     </div>
-    <!-- footer-bottom -->
-    <div class="aa-footer-bottom">
-      <div class="container">
-        <div class="row">
-        <div class="col-md-12">
-          <div class="aa-footer-bottom-area">
-            <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
-            <div class="aa-footer-payment">
-              <span class="fa fa-cc-mastercard"></span>
-              <span class="fa fa-cc-visa"></span>
-              <span class="fa fa-paypal"></span>
-              <span class="fa fa-cc-discover"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </footer>
+
+    </footer>
   <!-- / footer -->
-  <!-- Login Modal -->  
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">                      
-        <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4>Login or Register</h4>
-          <form class="aa-login-form" action="">
-            <label for="">Username or Email address<span>*</span></label>
-            <input type="text" placeholder="Username or email">
-            <label for="">Password<span>*</span></label>
-            <input type="password" placeholder="Password">
-            <button class="aa-browse-btn" type="submit">Login</button>
-            <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me </label>
-            <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
-            <div class="aa-register-now">
-              Don't have an account?<a href="account.html">Register now!</a>
-            </div>
-          </form>
-        </div>                        
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>
+
 
 
     

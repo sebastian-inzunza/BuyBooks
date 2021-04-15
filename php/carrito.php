@@ -138,7 +138,7 @@ session_start();
                         foreach($_SESSION['CARRITO']  as $indice=>$producto){
                             if($producto['ID'] == $ID){                 
                                 unset($_SESSION['CARRITO'][$indice]);
-                                echo'<script > alert("Elemento borrado");</script>';
+                               //echo'<script > alert("Elemento borrado");</script>';
                             }
 
                         }
