@@ -294,7 +294,7 @@ require "php/carrito.php";
                                 <input type="hidden" name="precio" id="precio"  value= "<?php echo $data['precio'];?>">
                                 <input type="hidden" name="imagen" id="imagen"  value= "<?php echo $data['imagen'];?>">
                                 <input type="hidden" name="cantidad" id="cantidad"  value= "<?php echo 1?>">
-                                <button class="aa-add-card-btn " name = "btnAction" type = "submit" value="Agregar"><span class=""></span>Add To Cart</button>
+                                <button class="aa-add-card-btn " name = "btnAction" type = "submit" value="Agregar"><span class=""></span>Añadir a carrito</button>
                             <!-- <a class="aa-add-card-btn agregar-carrito" href="#" name = "btnAction" type = "submit"><span class=""></span>Add To Cart</a>-->
                             </form>
 
@@ -369,7 +369,7 @@ require "php/carrito.php";
                                 <input type="hidden" name="precio" id="precio"  value= "<?php echo $data['precio'];?>">
                                 <input type="hidden" name="imagen" id="imagen"  value= "<?php echo $data['imagen'];?>">
                                 <input type="hidden" name="cantidad" id="cantidad"  value= "<?php echo 1?>">
-                                <button class="aa-add-card-btn " name = "btnAction" type = "submit" value="Agregar"><span class=""></span>Add To Cart</button>
+                                <button class="aa-add-card-btn " name = "btnAction" type = "submit" value="Agregar"><span class=""></span>Añadir a carrito</button>
                             <!-- <a class="aa-add-card-btn agregar-carrito" href="#" name = "btnAction" type = "submit"><span class=""></span>Add To Cart</a>-->
                             </form>
                               <figcaption>
@@ -382,6 +382,7 @@ require "php/carrito.php";
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>-->
                             <a href="#" class="item-id" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#<?php echo $data['id'];?>" data-id="<?php echo $data['id'];?>"><span class="fa fa-search"></span></a>                          
                           </div>
+                          
                           <!-- product badge -->
                           <?php
                            if($data['cantidad'] > 0){

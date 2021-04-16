@@ -27,10 +27,9 @@
                 $compania = 'FEDEX ($0)';
             }
             
-            $query = "INSERT INTO tbventas(id,fecha,correo,total,estatus,numeroTarjeta,libros, envio) 
+            $query = "INSERT INTO tbventas(id,fecha,correo,total,estatus,numeroTarjeta,libros, envio ) 
             VALUES (NULL, now(), '$nombre', '$total', 'PENDIENTE', '$numeroTar', '$libo','$compania')";
             $ejecutar = mysqli_query($conexion, $query);
-
             if ($ejecutar)
             {
                 foreach($_SESSION['CARRITO']  as $indice=>$producto){              

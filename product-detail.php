@@ -232,7 +232,7 @@ require "php/carrito.php";
                                 <input type="hidden" name="precio" id="precio"  value= "<?php echo $data['precio'];?>">
                                 <input type="hidden" name="imagen" id="imagen"  value= "<?php echo $data['imagen'];?>">
                                 <input type="hidden" name="cantidad" id="cantidad"  value= "<?php echo 1?>">
-                                <button class="aa-add-to-cart-btn " name = "btnAction" type = "submit" value="Agregar" ><span class=""></span>Add To Cart</button>
+                                <button class="aa-add-to-cart-btn " name = "btnAction" type = "submit" value="Agregar" ><span class=""></span>Añadir a carrito</button>
                             <!-- <a class="aa-add-card-btn agregar-carrito" href="#" name = "btnAction" type = "submit"><span class=""></span>Add To Cart</a>-->
                             </form>        
                       <!--<a class="aa-add-to-cart-btn agregar-carrito" href="#">Añadir a Carrito</a>-->

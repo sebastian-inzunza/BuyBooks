@@ -7,9 +7,10 @@
    $direccion = $_POST['direccion'];
    $sitio = $_POST['sitio'];
    $email = $_POST['email'];
+   $deuda = $_POST['deuda'];
     //para encriptar 
   
-    $query = "INSERT INTO provedor (nombreEmpresa,telefono,correo,direccion,paginaweb) VALUES ('$empresa', '$telefono', '$email' ,'$direccion','$sitio')";
+    $query = "INSERT INTO provedor (nombreEmpresa,telefono,correo,direccion,paginaweb, pago) VALUES ('$empresa', '$telefono', '$email' ,'$direccion','$sitio', '$deuda')";
     
     $verificar = mysqli_query($conexion, "SELECT * FROM provedor WHERE nombreEmpresa= '$empresa'");
     

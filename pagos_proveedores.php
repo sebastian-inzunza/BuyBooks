@@ -56,13 +56,7 @@
   </head>
   <body> 
     <!-- wpf loader Two -->
-      <div id="wpf-loader-two">          
-        <div class="wpf-loader-two-inner">
-          <span class="fa fa-leanpub"></span>
-          <p></p>
-          <span>Cargando</span>
-        </div>
-      </div> 
+  
     <!-- / wpf loader Two -->       
     <!-- SCROLL TOP BUTTON -->
     <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
@@ -192,12 +186,10 @@
                     <thead>
                       <tr>
                       
-                        <th>ID</th>
-                        <th>EMPRESA</th>
-                        <th>TELEFONO</th>
-                        <th>CORREO</th>
-                        <th>DIRRECION</th>
-                        <th>PAGINA WEB</th>
+                        <th>Provedor</th>
+                        <th>Pago</th>
+                        <th>Deuda</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -205,19 +197,39 @@
                       <tr>
                       <?php
                       require "php/conexion.php";
-                      $SELECT= "SELECT * FROM provedor";
-                      $result= mysqli_query($conexion,$SELECT);
+                      $SELECT = "SELECT *  FROM provedor";
+                      $result = mysqli_query($conexion,$SELECT);
+                    
+
                       while($row = mysqli_fetch_array($result))
                       {
-                      ?>
-                        <td><span class="aa-cart-title"><?php echo $row['id'];?></span></td>
-                        <td><span class="aa-cart-quantity"><?php echo $row['nombreEmpresa'];?></span></td>
-                        <td><?php echo $row['telefono'];?></td>
-                        <td><?php echo $row['correo'];?></td>
-                        <td><span><?php echo $row['direccion'];?></span></td>
-                        <td><?php echo $row['paginaweb'];?></td>
+                        $nya= "SELECT * from libro";
+                        $resulta = mysqli_query($conexion,$nya);
+                        $cont = 0;
+                        $cona = 0;
+                        while($data = mysqli_fetch_array($resulta))
+                        {
+                              if ($data['editorial'] == $row['nombreEmpresa']){
+                                
+                                $cont += $data['cantidad'];
+                                $cona += $data['precio']*$data['cantidad'];
+
+                              }
+                            }
+
+                            $porcentaje = ($cont *100)/601;
+                            $pagar = $cona/$porcentaje;
+
+                            if ($row['pago']!="Pagado"){
+
+
+                          ?>
+                        <td><span class="aa-cart-title"><?php echo $row['nombreEmpresa'];?></span></td>
+                        <td><span class="aa-cart-quantity">$<?php echo number_format($pagar,2) ;?></span></td>
+                        <td><span class="aa-cart-title"><?php echo $row['pago'];?></span></td>
                       </tr>   
                       <?php
+                            }
                       }
                       ?>                  
                       </tbody>
@@ -228,7 +240,6 @@
      </div>
    </div> 
  </section>
- <!-- / Cart view section -->
 
  <section id="cart-view">
    <div class="container">
@@ -236,14 +247,8 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-            
-             <!-- Cart Total view -->
-             <div class="cart-view-total">
-               <h4>Provedores</h4>
-               <table class="aa-totals-table">
-                 <tbody>
 
-                 <style> 
+           <style> 
                             
                             input[type=number]::-webkit-inner-spin-button, 
                             input[type=number]::-webkit-outer-spin-button { 
@@ -251,41 +256,31 @@
                               margin: 0; 
                             }
                     </style>
-                 
-                   <form action="php/addprov.php" method="post">   
+            
+             <!-- Cart Total view -->
+             <div class="cart-view-total">
+               <h4>Provedores</h4>
+               <table class="aa-totals-table">
+                 <tbody>
+
+                   <form action="php/deuda_prov.php" method="post">   
                      <tr>
-                        <td  colspan = "3"> <h3 for="my-input">Empresa:</h3></td>
-                        <td><span><input type="text" name="empresa" placeholder="Nombre:" required></span></td>
+                        <td  colspan = "3"> <h3 for="my-input">Provedor:</h3></td>
+                        <td><span><input type="text" name="provedor" placeholder="Proveedor" required></span></td>
                       </tr> 
                         
                           <tr>
-                            <td colspan = "3"><h3>Telefono:</h3></td>
-                            <td> <input type="tel" value=""   name = "telefono" placeholder="Telefono:" required></td>
+                          <td colspan = "3"><h3>Estatus:</h3></td>
+                          <td colspan = "3"><select name="estatus">
+                                  <option value="Pagado">Pagado</option>
+                                  <option value="Pendiente">Pendiente</option>
+                              </select></td>
                           </tr>
-                          <tr>
-                            <td colspan = "3"><h3>Correo:</h3></td>
-                            <td> <input type="email" placeholder="email:" name="email" required></td>
-                          </tr>
-                          <tr>
-                            <td colspan = "3">Direccion:</td>
-                            <td> <input type="text" placeholder="Direccion:" name = "direccion"required></td>
-                          </tr>
-
-                          <tr>
-                            <td colspan = "3">Sitio web:</td>
-                            <td> <input type="text" placeholder="Sitio web" name = "sitio"required></td>
-                          </tr>
-
-                          <tr>
-                            <td colspan = "3">Deuda:</td>
-                            <td> <input type="text" placeholder="Deuda:" value ="Sin pagar"name = "deuda"required></td>
-                          </tr>
-
                      </td>
                    </tr>
                   </tbody>
                </table>
-               <button class="aa-secondary-btn"  type="submit" >Provedores</button>
+               <button class="aa-secondary-btn"  type="submit" >Continuar</button>
             </form>
              </div>
            </div>
@@ -294,8 +289,8 @@
      </div>
    </div> 
  </section>
+ <!-- / Cart view section -->
 
-  
   <!-- footer -->  
   <footer id="aa-footer">
     <!-- footer bottom -->

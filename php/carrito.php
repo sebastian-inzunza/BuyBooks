@@ -77,8 +77,6 @@ session_start();
 
                     }
 
-
-
                     if(!isset($_SESSION['CARRITO'])){    //no se olviden poner el " ! "
 
                         $producto=array(
@@ -109,13 +107,13 @@ session_start();
                             $producto=array(
     
                                 'ID'=>$ID,
-    
+
                                 'titulo'=>$titulo,
-    
+     
                                 'CANTIDAD'=>$CANTIDAD,
-    
+     
                                 'PRECIO'=>$PRECIO, 
-    
+     
                                 'IMAGEN' =>$imagen
     
                              );

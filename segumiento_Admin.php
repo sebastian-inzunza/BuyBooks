@@ -152,6 +152,7 @@
               <li><a href="index_Admin.php">Inicio</a></li>
               <li><a href="segumiento_Admin.php">Seguimientos</a></li>
               <li><a href="Provedores.php">Proveedores</a></li>
+              <li><a href="pagos_proveedores.php">Pagos a proveedores</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
