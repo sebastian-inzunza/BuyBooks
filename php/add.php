@@ -6,7 +6,7 @@
     $titulo = $_POST['titulo']; 
     $genero =  $_POST['genero']; 
     $cantidad =  $_POST['cantidad']; 
-    $precio =  $_POST['cantidad']; 
+    $precio =  $_POST['precio']; 
     $detalle =  $_POST['detalle']; 
     $imagen =  $_POST['imagen']; 
 

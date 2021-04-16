@@ -260,7 +260,7 @@
                         
                           <tr>
                             <td colspan = "3"><h3>Telefono:</h3></td>
-                            <td> <input type="tel" value=""   name = "telefono" placeholder="Telefono:" required></td>
+                            <td> <input type="text"  placeholder="Telefono:" name = "telefono"  required></td>
                           </tr>
                           <tr>
                             <td colspan = "3"><h3>Correo:</h3></td>

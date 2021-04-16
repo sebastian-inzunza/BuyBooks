@@ -203,6 +203,9 @@
                   <input type="number" placeholder="Precio" min ="0" step = ".01" class="form-control" name= "precio">
                   <label for="">Portada de Libro<span>*</span></label>
                   <input type="file" accept="image/*" style="color: transparent"  capture="camera" onChange="actualiza(this.files[0].name)"class="form-control" >
+                  <input type="text" readonly="readonly"  id="m1" value="Imagen" class="form-control" name = "imagen">
+                  <label for="">Sinopsis<span>*</span></label>
+                  <textarea class="form-control" rows="3" placeholder="Detalle" name = "detalle"></textarea>
                   <button type="submit" class="aa-browse-btn">Registrar</button>
                   </form>
                 </div>
@@ -404,6 +407,7 @@
   <script type="text/javascript" src="js/nouislider.js"></script>
   <!-- Custom js -->
   <script src="js/custom.js"></script> 
+  <script src="js/main.js"></script>
   
   
 
