@@ -204,7 +204,23 @@
                   <label for="">Portada de Libro<span>*</span></label>
                   <input type="file" accept="image/*" style="color: transparent"  capture="camera" onChange="actualiza(this.files[0].name)"class="form-control" >
                   <input type="text" readonly="readonly"  id="m1" value="Imagen" class="form-control" name = "imagen">
+                  <label for="">Editorial<span>*</span></label>
+                  <select name ="editorial">
+                  <?php
+                    require "php/conexion.php";
+                    $SELECT = "SELECT *  FROM provedor";
+                    $result = mysqli_query($conexion,$SELECT);
+                    while($row = mysqli_fetch_array($result))
+                    {
+                  ?>
+                    <option value="<?php echo $row['nombreEmpresa'];?>"><?php echo $row['nombreEmpresa'];?></option>
+                  <?php
+                    }
+                  ?>
+                  </select>
+                  <div>
                   <label for="">Sinopsis<span>*</span></label>
+                  </div>
                   <textarea class="form-control" rows="3" placeholder="Detalle" name = "detalle"></textarea>
                   <button type="submit" class="aa-browse-btn">Registrar</button>
                   </form>

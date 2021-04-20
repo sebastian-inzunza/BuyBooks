@@ -9,12 +9,13 @@
     $precio =  $_POST['precio']; 
     $detalle =  $_POST['detalle']; 
     $imagen =  $_POST['imagen']; 
+    $editorial =  $_POST['editorial']; 
 
     $direccion = "img/";
     $direccion .= $genero;
     $direccion .= "/";
 
-    $query = "INSERT INTO libro (titulo , genero, detalle, precio, cantidad, imagen, autor) VALUES ('$titulo', '$genero', '$detalle','$precio', '$cantidad', '$direccion$imagen', '$autor')";
+    $query = "INSERT INTO libro (titulo , genero, detalle, precio, cantidad, imagen, autor, editorial) VALUES ('$titulo', '$genero', '$detalle','$precio', '$cantidad', '$direccion$imagen', '$autor', '$editorial')";
     
     $verificar = mysqli_query($conexion, "SELECT * FROM libro WHERE titulo= '$titulo'");
     

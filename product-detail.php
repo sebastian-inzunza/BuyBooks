@@ -123,7 +123,7 @@ require "php/carrito.php";
                         </li>
                       <?php }?>
                     </ul>
-                         <a class="aa-cartbox-checkout aa-primary-btn" href="#">Checkout</a>
+                         <a class="aa-cartbox-checkout aa-primary-btn" href="cart.php">Checkout</a>
                     <?php }else{?>
                       <ul><li></li>
                       </ul>

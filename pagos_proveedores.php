@@ -209,18 +209,21 @@
                         $cona = 0;
                         while($data = mysqli_fetch_array($resulta))
                         {
-                              if ($data['editorial'] == $row['nombreEmpresa']){
+                          
+                            if ( $data['editorial'] == $row['nombreEmpresa'] ){
                                 
                                 $cont += $data['cantidad'];
                                 $cona += $data['precio']*$data['cantidad'];
 
                               }
+                              
                             }
-
+                            if($cona!=0){
                             $porcentaje = ($cont *100)/601;
                             $pagar = $cona/$porcentaje;
-
-                            if ($row['pago']!="Pagado"){
+                            }
+                            
+                            if ($row['pago']!="Pagado" && $cona!=0){
 
 
                           ?>
